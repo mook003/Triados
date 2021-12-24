@@ -1,1 +1,1 @@
-# Triados shiza
+# Triados
