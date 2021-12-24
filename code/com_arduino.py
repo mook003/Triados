@@ -5,12 +5,12 @@ import pyzed.sl as sl
 arduino = serial.Serial('/dev/ttyUSB0', baudrate = 115200 , timeout = 1)
 
 #main features
-wheels_radius = 43/2
+wheels_radius = 21.5
 wheels_dist=125
 wheels_len = wheels_radius * math.pi
 
 #variables
-motor_pwm = ''
+motors_pwm = ''
 
 # type: turning / straight ; angel: -180 - 180 ; speed: 0-100%/ comming soon...
 def go(type, angel, speed):
