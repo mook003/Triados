@@ -30,7 +30,7 @@ Nvidia Jetson nano - одноплатный компьютер, разработ
 1. Скачайте файл для установки [ОС Ubuntu](https://developer.nvidia.com/jetson-nano-sd-card-image).
 #### Если если ОС на вашем компьютере Windows:
 Отформатируйте SD-карту:
-<img scr ="https://github.com/mook003/Triados/blob/main/docs/images/Jetson_Nano-Getting_Started-Windows-SD_Card_Formatter.png" width="100%">  
+<img src="https://github.com/mook003/Triados/blob/main/docs/images/topic.png" width="100%">
 1. Скачайте, установите и запустите [файл](https://www.sdcard.org/downloads/formatter_4/eula_windows/).
 2. Выберите SD-карту.
 3. Выберите `Quick format`.
