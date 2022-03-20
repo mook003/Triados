@@ -112,4 +112,4 @@ if __name__ == '__main__':
 
 <p align="right">
 <br/>
-Back | <b><a href="move_node.md">Main node</a></b></p>
+Back | <b><a href="move_node.md">Move node</a></b></p>
