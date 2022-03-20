@@ -26,10 +26,53 @@ roscreate-pkg <Название вашего проекта> std_msgs rospy rosc
 rosmake
 ```
 
-> **note:** после названия вашего проекта нужно указать пакеты, которые вы хотите добавить. Например, std_msgs - пакет, который содержит стандартные типы сообщений (Bool, Float64, Int64, String и другие); rospy - библиотека python для работы с ROS; roscpp - библиотека с++ для работы с ROS.
+> **note:** После названия вашего проекта нужно указать пакеты, которые вы хотите добавить. Например, std_msgs - пакет, который содержит стандартные типы сообщений (Bool, Float64, Int64, String и другие); rospy - библиотека python для работы с ROS; roscpp - библиотека с++ для работы с ROS.
 
 Поздравляю! Теперь у вас есть собранный проект и мы можем перейти к написанию программ.
 
 # Publisher и subscriber
+Приступим к написанию нод для связи Publisher и subscriber
 
+Для начала перейдите в папку проекта командой `roscd`, создайте папку для нод и два текстовых документа. 
+
+``` bash
+roscd <Название вашего проекта>
+mkdir nodes
+touch nodes/Publisher.py
+touch nodes/Subscriber.py
+chmod +x nodes/Publisher.py
+chmod +x nodes/Subscriber.py
+make
+```
+Для запуска программ через ROS нужно сделать их исполняемыми командой `chmod +x`. 
+> **note:** После каждого изменения структуры вашего проекта нужно заново его собирать.
+
+Перейдём к коду.
+
+Вот краткий обзор кода:
+``` python
+#!/usr/bin/env python
+import roslib; roslib.load_manifest('Lesson1')
+import rospy
+from std_msgs.msg import String
+def talker():
+	pub = rospy.Publisher('chatter', String)
+	rospy.init_node('talker1')
+	while not rospy.is_shutdown():
+		str  = 'Hello world %s' %rospy.get_time
+		rospy.loginfo(str)
+		pub.publish(String(str))
+
+if __name__ == '__main__':
+	try:
+		talker()
+	except rospy.ROSInterruptException: pass
+```
+
+Для начала откройте файл Publisher.py в выбранном вами редакторе и добавьте последовательность shebang в самый верх файла, чтобы автоматически использовать интерпретатор Python и операторы `import`:
+``` python
+#!/usr/bin/env python
+import roslib; roslib.load_manifest('Lesson1')
+import rospy
+```
 # Сервис и клиент
