@@ -1,0 +1,63 @@
+cd /home/my_lord/jetson-inference/tools
+./download-models.sh
+
+переустановка моделей
+---------------------
+
+
+
+
+
+
+rqt_graph все ноды 
+rostopic list
+
+<launch>
+	<node pkg="Lesson1" name="tal1" type="Talker.py" />
+	<node pkg="Lesson1" name="tal2" type="Talker2.py" />
+	<node pkg="Lesson1" name="lis" type="Listener.py" output="screen"/>
+</launch>
+
+
+
+
+roscreate-pkg Nazvanie std_msgs rospy roscpp
+
+touch "int64 sum" > msg/Num.msg
+
+
+#peredat
+int64 a
+int64 b
+float64 c
+string text
+---
+#poluch
+float64 Sum
+#.srv
+
+
+chmod +x srvice.py
+
+
+
+#создание ... touch "int64 sum" > msg/Num.msg
+cd triados
+export ROS_PACKAGE_PATH=~/triados:$ROS_PACKAGE_PATH
+roscreate-pkg aiden std_msgs rospy roscpp sensor_msgs zed_interfaces
+cd aiden
+mkdir nodes
+touch nodes/rbt_det.py
+chmod +x nodes/rbt_det.py
+make
+
+
+#запуск ...
+rosrun moveit_tutorials move_group_python_interface_tutorial.py
+source ~/catkin_ws/devel/setup.bash
+source ~/ws_moveit/devel/setup.bash
+
+export ROS_PACKAGE_PATH=~/triados:$ROS_PACKAGE_PATH
+
+rosrun Lesson2 client.py    /  roslaunch Lesson1 lan.launch  /   roslaunch zed_wrapper zed2.launch
+
