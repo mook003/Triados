@@ -2,6 +2,7 @@
 
 ## Начнем с теории
 Arduino - 
+
 <img src="https://github.com/mook003/Triados/blob/main/docs/images/arduino.jfif">
 
 Из-за особенностей архитектуры Nvidia Jetson Nano управление ШИМ-сигналами ограничено. У компьютера присутствует лишь 2 соответствующих пина.
