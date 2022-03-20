@@ -109,7 +109,7 @@ def hand_com(x, y, z):
 		return e
 ```
 
-> **note**: Подробный разбор кода для связи `Сервис и клиент` вы можете найти [здесь](service_and_client.md).
+> **note**: Подробный разбор кода для связи `Сервис и клиент` вы можете найти [здесь](ros.md#сервис-и-клиент).
 
 Функция `move_com` публикует координаты найденного объекта для [`move_node`](https://github.com/mook003/Triados/blob/main/code/nodes/move_node.py).
 
