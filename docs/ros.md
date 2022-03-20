@@ -191,7 +191,7 @@ make
 Вот краткий обзор кода для сервиса:
 Вот краткий обзор кода для клиента:
 
-<p align="right">Next | <b><a href="hand_node.md">Hand node</a></b>
+<p align="right">Next | <b><a href="zed.md">Работа ZED</a></b>
 <br/>
-Back | <b><a href="main_node.md">Main node</a></b></p>
+Back | <b><a href="servomotor.md">Управление сервоприводом</a></b></p>
 <p align="center"><sup>2021-2022 TRIADOS | </sup><a href="../README.md#содержание"><sup>Содержание</sup></a></p>
