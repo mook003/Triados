@@ -31,7 +31,7 @@
 * [Управление серводвигателем](docs/servomotor.md)
 
 #### Ros
-* [Введение в Ros](docs/ros)
+* [Введение в Ros](docs/ros.md)
   * [Publisher and Subscriber](docs/publisher_and_subscriber.md)
   * [Сервис и клиент](docs/service_and_client.md)
 
