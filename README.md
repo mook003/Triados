@@ -15,7 +15,7 @@
 * [Установка операционной системы](docs/linux_installation.md)
 * [Настройка Nvidia jetson](docs/setting_up_jetson_nano.md)
 
-#### Разьёмы Nvidia jetson
+#### Разъёмы Nvidia jetson
 * [Основные разьёмы](docs/ports.md)
 * [40-контактный разъем расширения](docs/40-pin_expansion_header.md)
   * [i2c](docs/i2c.md)
