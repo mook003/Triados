@@ -178,7 +178,7 @@ float64 Sum
 ```
 Переменные, идущие до `---`, отправляются клиентом, а те, которые идут после, принимаются в качестве ответа.
 
-Теперь откройте файл CMakeList.txt в вашем проекте и раскоментирйте строчку `#rosbuild_genmsg()` и `#rosbuild_gensrv()`.
+Теперь откройте файл `CMakeList.txt` в вашем проекте и раскоментирйте строчку `#rosbuild_genmsg()` и `#rosbuild_gensrv()`.
 
 Создайте файлы для нод:
 ``` bash
@@ -186,6 +186,6 @@ touch nodes/service.py
 touch nodes/client.py
 chmod +x nodes/service.py
 chmod +x nodes/client.py
-make
+make-
 ```
 
