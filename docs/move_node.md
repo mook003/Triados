@@ -126,5 +126,5 @@ if __name__ == '__main__':
 > **note**: Обьяснение строчки `ard = serial.Serial('/dev/ttyACM0', baudrate = 115200)` вы можете найти [здесь](arduino.md).
 
 <p align="right">Next | <b><a href="hand_node.md">Hand node</a></b>
-<br/></p>
-Back | <b><a href="main_node.md">Main node</a></b>
+<br/>
+Back | <b><a href="main_node.md">Main node</a></b></p>
