@@ -4,6 +4,7 @@
 
 Nvidia Jetson nano - одноплатный компьютер, разработанный компанией nvidia. 
 Строение нашего компьютера:
+
 <img src="https://github.com/mook003/Triados/blob/main/docs/images/jetson-nano-dev-kit.png" width="100%">
 
 1 - слот для карты памяти. Т.к. у самого компьютера нет постоянной памяти, мы будем использовать карту памяти
@@ -30,7 +31,9 @@ Nvidia Jetson nano - одноплатный компьютер, разработ
 1. Скачайте файл для установки [ОС Ubuntu](https://developer.nvidia.com/jetson-nano-sd-card-image).
 #### Если если ОС на вашем компьютере Windows:
 Отформатируйте SD-карту:
-<img src="https://github.com/mook003/Triados/blob/main/docs/images/Jetson_Nano-Getting_Started-Windows-SD_Card_Formatter.png" width="100%">
+
+<img src="https://github.com/mook003/Triados/blob/main/docs/images/Card_Formatter.png" width="50%">
+
 1. Скачайте, установите и запустите [файл](https://www.sdcard.org/downloads/formatter_4/eula_windows/).
 2. Выберите SD-карту.
 3. Выберите `Quick format`.
@@ -38,12 +41,20 @@ Nvidia Jetson nano - одноплатный компьютер, разработ
 5. Нажмите `Format`.
   
 Используйте `Etcher` для создания образа (установочного файла) на SD-карте:
-1. Скачайте, установите и запустите [Etcher](https://www.balena.io/etcher).
+1. Скачайте, установите и запустите [Etcher](https://www.balena.io/etcher). 
+
+<img src="https://github.com/mook003/Triados/blob/main/docs/images/Windows-Etcher.png.png" width="50%">
+
 2. Нажмите `Select image` и укажите заархивированный обрвз, скачанный заранее.
 3. Подключите SD-кариу, если она еще не подключена.
 Если windows вам диалоговое окно по типу этого, согласно [этому объяснению](https://github.com/balena-io/etcher/issues/2024) нажмите `Cancel`.
-<img scr ="https://github.com/mook003/Triados/blob/main/docs/images/Jetson_Nano-Getting_Started-Windows-Etcher_Cancel.png" width="100%">
+
+<img src="https://github.com/mook003/Triados/blob/main/docs/images/Etcher_Cancel.png" width="50%">
+
 4. Нажмите `Select drive` и выберите нужный диск.
+
+<img scr="https://github.com/mook003/Triados/blob/main/docs/images/Etcher_Select_Drive.png" width="50%">
+
 5. Нажмите `Flash!` программе Etcher понадобится примерно 10 минут, если карта поключена через USB3, чтобы обработать и проверить образ.
 6. Когда процесс закончится, Windows может сообщить вам, что не знает, как читать карту и предложить вам отформатировать ее. Просто нажите `cancel` и отключите SD-карту.
 
