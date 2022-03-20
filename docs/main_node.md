@@ -109,7 +109,7 @@ def hand_com(x, y, z):
 		return e
 ```
 
-> **note**: Подробный разбор кода для связи `Сервис и клиент` вы можете найти [здесь](https://vk.com/video519133527_456239749).
+> **note**: Подробный разбор кода для связи `Сервис и клиент` вы можете найти [здесь](service_and_client.md).
 
 Функция `move_com` публикует координаты найденного объекта для [`move_node`](https://github.com/mook003/Triados/blob/main/code/nodes/move_node.py).
 
@@ -140,7 +140,7 @@ def callback(data):
 		if obj_data[0][2][0]<0.35:
 			print(hand_com(obj_data[0][2][0], obj_data[0][2][1], obj_data[0][2][2]))
 ```
-> **note**: Подробный разбор кода для связи `Publisher and Subscriber` вы можете найти [здесь](https://vk.com/video519133527_456239749).
+> **note**: Подробный разбор кода для связи `Publisher and Subscriber` вы можете найти [здесь](publisher_and_subscriber.md).
 
 Для запуска всех вышеперечисленных функций используется `main`.
 ``` python
