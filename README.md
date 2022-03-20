@@ -32,8 +32,8 @@
 
 #### Ros
 * [Введение в Ros](docs/ros.md)
-  * [Publisher and Subscriber](ros.md#publisher-и-subscriber)
-  * [Сервис и клиент](ros.md#сервис-и-клиент)
+  * [Publisher and Subscriber](docs/ros.md#publisher-и-subscriber)
+  * [Сервис и клиент](docs/ros.md#сервис-и-клиент)
 
 #### Работа с zed
 * [ROS](docs/zed.md#ros)
