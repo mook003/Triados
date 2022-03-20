@@ -30,6 +30,11 @@
 * [Управление электродвигателем постоянного тока](docs/dc_motor.md)
 * [Управление серводвигателем](docs/servomotor.md)
 
+#### Ros
+* [Введение в Ros](docs/ros)
+  * [Publisher and Subscriber](docs/publisher_and_subscriber.md)
+  * [Сервис и клиент](docs/service_and_client.md)
+
 #### Работа с zed
 * [ROS](docs/zed.md#ros)
   * [Датчики](docs/sensors.md)
