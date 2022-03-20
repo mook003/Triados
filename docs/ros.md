@@ -31,7 +31,7 @@ rosmake
 Поздравляю! Теперь у вас есть собранный проект и мы можем перейти к написанию программ.
 
 # Publisher и subscriber
-Приступим к написанию нод для связи Publisher и subscriber
+Приступим к написанию нод для связи Publisher и subscriber.
 
 Для начала перейдите в папку проекта командой `roscd`, создайте папку для нод и два текстовых документа. 
 
@@ -49,10 +49,10 @@ make
 
 Перейдём к коду.
 
-Вот краткий обзор кода:
+Вот краткий обзор кода для Publisher:
 ``` python
 #!/usr/bin/env python
-import roslib; roslib.load_manifest('Lesson1')
+import roslib; roslib.load_manifest('<Название вашего проекта>')
 import rospy
 
 from std_msgs.msg import String
@@ -103,11 +103,89 @@ def talker():
 `rospy.loginfo(str)` выводит в терминал сообщение с указанием времени и уровня.
 `pub.publish(String(str))` публикует сообщение `str` в формате `String`.
 
-Завершает программу стартовая инструкция `__name__ == '__main__'` конструкция обработки исключений
+Завершает программу стартовая инструкция `__name__ == '__main__'` и конструкция обработки исключений
 ``` python
 if __name__ == '__main__':
 	try:
 		talker()
 	except rospy.ROSInterruptException: pass
 ```
+
+Вот краткий обзор кода для Subscriber:
+``` python
+#!/usr/bin/env python
+import roslib; roslib.load_manifest('<Название вашего проекта>')
+import rospy
+from std_msgs.msg import String
+def callback(data):
+	rospy.loginfo(rospy.get_name()+"$s I heard %s", data.data)
+
+def listener():
+	rospy.init_node('listenerBoss')
+	rospy.Subscriber("main_node_move", String, callback)
+	rospy.spin()
+
+if __name__ == '__main__':
+	listener()
+```
+
+Начало аналогично коду Publisher. Отличия начинаются с функции `callback`:
+``` python
+def callback(data):
+	rospy.loginfo(rospy.get_name()+"$s I heard %s", data.data)
+```
+Эта функция выводит название своей ноды командой `rospy.get_name()` и данные от Publisher.
+
+Далее идёт функция `listener`, которая называет данную ноду `listenerBoss` и получает типданных `String` от узла `chatter`, передавая их в функцию `callback`.
+```python
+def listener():
+	rospy.init_node('listenerBoss')
+	rospy.Subscriber("chatter", String, callback)
+	rospy.spin()
+```
+`rospy.spin()` повторяет данную функцию, пока ROS работает.
+
+Завершает программу также стартовая инструкция `__name__ == '__main__'`:
+``` python
+if __name__ == '__main__':
+	listener()
+```
+
 # Сервис и клиент
+
+Приступим к написанию нод для связи Сервис и клиент.
+
+Для начала создайте ещё один проект, следуя [данной](#создание-первого-проекта) инструкции.
+
+Теперь перейдите в папку проекта командой `roscd` и создайте папку для нод и сообщений. Также нужно создать файл для хранения типов сообщений.
+``` bash
+roscd <Название вашего проекта>
+mkdir nodes
+mkdir msg
+mkdir srv
+touch "int64 sum" > msg/Num.msg
+touch srv/Messages.srv
+```
+
+Откройте файл Messages.srv в текстовом редакторе и добавьте следующие строки:
+```
+int64 a
+int64 b
+float64 c
+string text
+---
+float64 Sum
+```
+Переменные, идущие до `---`, отправляются клиентом, а те, которые идут после, принимаются в качестве ответа.
+
+Теперь откройте файл CMakeList.txt в вашем проекте и раскоментирйте строчку `#rosbuild_genmsg()` и `#rosbuild_gensrv()`.
+
+Создайте файлы для нод:
+``` bash
+touch nodes/service.py
+touch nodes/client.py
+chmod +x nodes/service.py
+chmod +x nodes/client.py
+make
+```
+
