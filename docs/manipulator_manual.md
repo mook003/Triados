@@ -1,4 +1,4 @@
-
+# Сборка манипулятора
 <p align="right">Next | <b><a href="moveit.md">MoveIt</a></b>
 <br/>
 Back | <b><a href="object_detection">Нейронные сети</a></b></p>
