@@ -169,12 +169,13 @@ touch srv/Messages.srv
 
 Откройте файл Messages.srv в текстовом редакторе и добавьте следующие строки:
 ```
-int64 a
-int64 b
-float64 c
-string text
+int64 x
+int64 y
+float64 angle
+string Status
 ---
 float64 Sum
+string Status_out
 ```
 Переменные, идущие до `---`, отправляются клиентом, а те, которые идут после, принимаются в качестве ответа.
 
@@ -189,7 +190,111 @@ chmod +x nodes/client.py
 make
 ```
 Вот краткий обзор кода для сервиса:
+
+```python
+#!/usr/bin/env python
+import roslib
+roslib.load_manifest('<Название вашего проекта>')
+import rospy
+
+from <Название вашего проекта>.srv import *
+
+def callback(req):
+	X = req.x
+	Y = req.y
+	print(req.angle)
+	STATUS = req.Status
+	return MessagesResponse(X+Y, STATUS)
+
+
+def add_three_server():
+	rospy.init_node('add_two_ints_server')
+	s = rospy.Service('add_three', Messages, handle_add_three_ints)
+	print("Ready to add coord and Status")
+	rospy.spin()
+
+if __name__ == '__main__':
+	add_three_server()
+```
+
+Начало в обеих программах аналогично предыдущим.
+
+Следующей строчкой мы импортируем переменные и их типы данных:
+
+``` python
+from <Название вашего проекта>.srv import *
+```
+
+Функция `callback` обрабатывает полученные данные и отправляет ответ командой `MessagesResponse()`.
+
+``` python
+def callback(req):
+	X = req.x
+	Y = req.y
+	print(req.angle)
+	STATUS = req.Status
+	return MessagesResponse(X+Y, STATUS)
+```
+
+> **note:** `MessagesResponse()` должен содержать столько переменных, сколько указано в файле `Messages.srv`.
+
+В данной функции новой является команда `s = rospy.Service('add_three', Messages, callback)`. Она задаёт сервис с названием `'add_three`, который передаёт данные в функцию `callback`.
+
+``` python
+def add_three_server():
+	rospy.init_node('add_two_ints_server')
+	s = rospy.Service('add_three', Messages, handle_add_three_ints)
+	print("Ready to add coord and Status")
+	rospy.spin()
+```
+
 Вот краткий обзор кода для клиента:
+
+```python
+#!/usr/bin/env python
+import roslib
+roslib.load_manifest('<Название вашего проекта>')
+import sys
+import rospy
+from <Название вашего проекта>.srv import *
+
+
+def add_three_client(x, y, angle, Status):
+	rospy.wait_for_service('add_three')
+	try:
+		add_two_ints = rospy.ServiceProxy('add_three', Messages)
+		resp1 = add_two_ints(x, y, angle, Status)
+		return resp1.Sum, resp1.Status_out
+	except rospy.ServiceException as e:
+		print("Service call failed: %s" % e)
+
+if __name__ == '__main__':
+	if len(sys.argv) == 5:
+		x = int(sys.argv[1])
+		y = int(sys.argv[2])
+		angle = float(sys.argv[3])
+		Status = str(sys.argv[4])
+	else:
+		sys.exit(1)
+	print("Requesting %s+%s+%s" % (x, y, angle))
+	print("Status:", Status)
+	print(add_three_client(x, y, angle, Status))
+```
+
+Функция `add_three_client` связывается с сервисом.
+``` python
+def add_three_client(x, y, angle, Status):
+	rospy.wait_for_service('add_three')
+	try:
+		add_two_ints = rospy.ServiceProxy('add_three', Messages)
+		resp1 = add_two_ints(x, y, angle, Status)
+		return resp1.Sum, resp1.Status_out
+	except rospy.ServiceException as e:
+		print("Service call failed: %s" % e)
+```
+`rospy.wait_for_service('add_three')` останавливает работу программы, пока не будет установленно соединение с сервисом.
+`add_two_ints = rospy.ServiceProxy('add_three', Messages)` создаёт дескриптор, в который далее передаются данные.
+Переменная `resp1` содержит полученный ответ. Благодаря `try` и `except` реализуеся обработка исключений: пока не будет получена ошибка, будет выполнятся код в `try:`
 
 <p align="right">Next | <b><a href="zed.md">Работа ZED</a></b>
 <br/>
