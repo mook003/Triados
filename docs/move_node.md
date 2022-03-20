@@ -1,67 +1,50 @@
 # Написание основной программы для управления роботом
 
 ``` python
-#!/usr/bin/env python
 import roslib; roslib.load_manifest('aiden')
-import sys
 import rospy
-
-
-from aiden.srv import *
-from sensor_msgs.msg import Image
-from zed_interfaces.msg import Object
-from zed_interfaces.msg import ObjectsStamped
+import serial
+import math
 from std_msgs.msg import String
+from sensor_msgs.msg import Imu
+
+rbt_coord = [0,0,0]
+rbt_angle = 0
+s = 0
+motion_coord = []
 
 
 
-obj_data = [0, 0, [1,1, 2]]
-
-# Hand node communication function
-def hand_com(x, y, z):
-	rospy.wait_for_service("hand_srv")
-	try: 
-		move_server = rospy.ServiceProxy("hand_srv", Messages)
-		data = move_server(x, y, z)
-		return data.report
-	except rospy.ServiceException as e:
-		return e
-
-# Move node communication function
-def move_com(x, y, z):
-	global pub
-	str  = "{} {} {}".format(x, y, z)
-	pub.publish(String(str))
-	print(str)
-
-# Received data processing function
+def callbackIMU (data):
+	global rbt_angle, motion_coord
+	rbt_angle = data.orientation.z * 90/0.71 + 100000
+	
 def callback(data):
-	global obj_data
-	obj_data = []
-	rospy.loginfo("***** New Object *****")
-	for i in range(0, len(data.objects)):
-		if data.objects[i].lable == "Person":
-			obj_data.append([data.objects[i].label, data.objects[i].label_id, [data.objects[i].position[0], data.objects[i].position[1], data.objects[i].position[2]], data.objects[i].confidence, data.objects[i].tracking_state ])
-			break
-
+	global math, motion_coord, rbt_angle 
+	coord = list(map(float, data.data.split()))
+	coord[0]-=0.0468
+	coord[1]+=0.0585
+	motion_coord = [math.atan(coord[1] / coord[0]) * 180 / math.pi, coord[0]]
+	print("motion_coord: {}".format(motion_coord))
+	if motion_coord[0] > 2:
+		ard.write(bytes("0,80,-80,80,-80"))
+	if motion_coord[0] < -2:
+		ard.write(bytes("0,-80,80,-80,80"))
+	if motion_coord[0] > -2 and motion_coord[0] < 2 and motion_coord[1] > 0.35:
+		ard.write(bytes("0,-80,-80,-80,-80"))
+	if motion_coord[1] <= 0.35:
+		ard.write(bytes("0,0,0,0,0"))
 def main():
-	#rospy.Subscriber("/zed2/zed_node/obj_det/objects", ObjectsStamped, callback)
-	global obj_data
-	if obj_data:
-		if obj_data[2][2]>1:
-			move_com(obj_data[2][0], obj_data[2][1], obj_data[2][2])
-		else:
-			rep = hand_com(obj_data[2][0], obj_data[2][1], obj_data[2][2])
-			if rep!="done":
-				print("Manipulator error: {}".format(rep) )
-			else:
-				print("Mission completed")
+	rospy.init_node('move_node')
+	#rate = rospy.Rate(1)
+	rospy.Subscriber("main_node_move", String, callback)
 	rospy.spin()
 
+
+
+
 if __name__ == '__main__':
-	pub = rospy.Publisher('main_node_move', String)
-	rospy.init_node('main_node')
-	
+	ard = serial.Serial('/dev/ttyACM0', baudrate = 115200)
 	main()
 ```
 
@@ -81,87 +64,67 @@ if __name__ == '__main__':
 
 ``` python
 import roslib; roslib.load_manifest('aiden')
-import sys
 import rospy
+import serial
+import math
 ```
 
 Следующим этапом нужно импортировать типы сообщений, которые будут использоваться нодами:
 
 ``` python
-from aiden.srv import *
-from sensor_msgs.msg import Image
-from zed_interfaces.msg import Object
-from zed_interfaces.msg import ObjectsStamped
 from std_msgs.msg import String
+from sensor_msgs.msg import Imu
 ```
 
 #### Функции обработки и передачи данных 
 Приступим к написанию основной части прораммы.
 
-Следующая функция обеспечивает связь между `main_node` и [`hand_node`](https://github.com/mook003/Triados/blob/main/code/nodes/hand_node.py), передавая координаты объекта и получая обратно отчёт от манипулятора.
+Следующая функция обрабатывает данные, получаемые от узла `/zed2/zed_node/imu/data`
 ``` python
-def hand_com(x, y, z):
-	rospy.wait_for_service("hand_srv")
-	try: 
-		move_server = rospy.ServiceProxy("hand_srv", Messages)
-		data = move_server(x, y, z)
-		return data.report
-	except rospy.ServiceException as e:
-		return 
+def callbackIMU (data):
+	global rbt_angle, motion_coord
+	rbt_angle = data.orientation.z * 90/0.71 + 100000
 ```
 
-> **note**: Подробный разбор кода для связи `Сервис и клиент` вы можете найти [здесь](https://vk.com/video519133527_456239749).
-
-Функция `move_com` публикует координаты найденного объекта для [`move_node`](https://github.com/mook003/Triados/blob/main/code/nodes/move_node.py).
-
-``` python
-def move_com(x, y, z):
-	global pub
-	str  = "{} {} {}".format(x, y, z)
-	pub.publish(String(str))
-	print(str)
-```
-
-Для обработки данных, получаемых от узла `/zed2/zed_node/obj_det/objects`, используется функция `callback`.
+Функция `callback` получает данные от [`main_node`](main_node.md) и передаёт команды Arduino.
 
 ``` python
 def callback(data):
-	global obj_data
-	obj_data = []
-	rospy.loginfo("***** New Object *****")
-	for i in range(0, len(data.objects)):
-		if data.objects[i].lable == "Person":
-			obj_data.append([data.objects[i].label, data.objects[i].label_id, [data.objects[i].position[0], data.objects[i].position[1], data.objects[i].position[2]], data.objects[i].confidence, data.objects[i].tracking_state ])
-			break
+	global math, motion_coord, rbt_angle 
+	coord = list(map(float, data.data.split()))
+	coord[0]-=0.0468
+	coord[1]+=0.0585
+	motion_coord = [math.atan(coord[1] / coord[0]) * 180 / math.pi, coord[0]]
+	print("motion_coord: {}".format(motion_coord))
+	if motion_coord[0] > 2:
+		ard.write(bytes("0,80,-80,80,-80"))
+	if motion_coord[0] < -2:
+		ard.write(bytes("0,-80,80,-80,80"))
+	if motion_coord[0] > -2 and motion_coord[0] < 2 and motion_coord[1] > 0.35:
+		ard.write(bytes("0,-80,-80,-80,-80"))
+	if motion_coord[1] <= 0.35:
+		ard.write(bytes("0,0,0,0,0"))
 ```
-> **note**: Подробный разбор кода для связи `Publisher and Subscriber` вы можете найти [здесь](https://vk.com/video519133527_456239749).
+
+> **note**: Подробный разбор кода для связи `Publisher and Subscriber` вы можете найти [здесь](publisher_and_subscriber.md).
 
 Для запуска всех вышеперечисленных функций используется `main`.
 ``` python
 def main():
-	#rospy.Subscriber("/zed2/zed_node/obj_det/objects", ObjectsStamped, callback)
-	global obj_data
-	if obj_data:
-		if obj_data[2][2]>1:
-			move_com(obj_data[2][0], obj_data[2][1], obj_data[2][2])
-		else:
-			rep = hand_com(obj_data[2][0], obj_data[2][1], obj_data[2][2])
-			if rep!="done":
-				print("Manipulator error: {}".format(rep) )
-			else:
-				print("Mission completed")
+	rospy.init_node('move_node')
+	rospy.Subscriber("main_node_move", String, callback)
 	rospy.spin()
 ```
 
 Завершает программу стартовая инструкция `__name__ == '__main__'`
 ``` python
 if __name__ == '__main__':
-	pub = rospy.Publisher('main_node_move', String)
-	rospy.init_node('main_node')
-	
+	ard = serial.Serial('/dev/ttyACM0', baudrate = 115200)
 	main()
 ```
 
-<p align="right">Next | <b><a href="https://sun9-15.userapi.com/impf/g5KybyOVu0pAzhV7h4-dPafh0Bc4Kmm30di2ow/1IFNcUS2k2Q.jpg?size=943x591&quality=95&sign=be07ed0177c1f8514970c5dcb72d659a&type=album">Тоже нет</a></b>
+> **note**: Обьяснение строчки `ard = serial.Serial('/dev/ttyACM0', baudrate = 115200)` вы можете найти [здесь](arduino.md).
+
+<p align="right">Next | <b><a href="hand_node.md">Hand node</a></b>
 <br/></p>
-Back | <b><a href="https://sun9-15.userapi.com/impf/g5KybyOVu0pAzhV7h4-dPafh0Bc4Kmm30di2ow/1IFNcUS2k2Q.jpg?size=943x591&quality=95&sign=be07ed0177c1f8514970c5dcb72d659a&type=album">Нету</a></b>
+Back | <b><a href="main_node.md">Main node</a></b>
