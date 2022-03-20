@@ -103,5 +103,11 @@ def talker():
 `rospy.loginfo(str)` выводит в терминал сообщение с указанием времени и уровня.
 `pub.publish(String(str))` публикует сообщение `str` в формате `String`.
 
-Завершает программу стартовая инструкция __name__ == '__main__'
+Завершает программу стартовая инструкция `__name__ == '__main__'` конструкция обработки исключений
+``` python
+if __name__ == '__main__':
+	try:
+		talker()
+	except rospy.ROSInterruptException: pass
+```
 # Сервис и клиент
