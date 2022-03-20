@@ -186,10 +186,10 @@ touch nodes/service.py
 touch nodes/client.py
 chmod +x nodes/service.py
 chmod +x nodes/client.py
-make-
+make
 ```
-
-
+Вот краткий обзор кода для сервиса:
+Вот краткий обзор кода для клиента:
 
 <p align="right">Next | <b><a href="hand_node.md">Hand node</a></b>
 <br/>
