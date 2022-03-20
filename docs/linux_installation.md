@@ -43,7 +43,7 @@ Nvidia Jetson nano - одноплатный компьютер, разработ
 Используйте `Etcher` для создания образа (установочного файла) на SD-карте:
 1. Скачайте, установите и запустите [Etcher](https://www.balena.io/etcher). 
 
-<img src="https://github.com/mook003/Triados/blob/main/docs/images/Windows-Etcher.png.png" width="50%">
+<img src="https://github.com/mook003/Triados/blob/main/docs/images/Windows-Etcher.png" width="50%">
 
 2. Нажмите `Select image` и укажите заархивированный обрвз, скачанный заранее.
 3. Подключите SD-кариу, если она еще не подключена.
