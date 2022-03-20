@@ -37,3 +37,9 @@
   * [Глубина](docs/depth.md)
   * [Нейронные сети](docs/object_detection.md)
 * [Pyzed](docs/zed.md#pyzed) (к защите готово НЕ будет)
+
+#### Манипулятор
+* [Сборка манипулятора](docs/manipulator_manual.md) (в начале в коробке будет сидеть маленький Ярослав, который всё соберёт)
+* [MoveIt](docs/moveit.md)
+
+#### Робот
