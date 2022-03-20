@@ -106,7 +106,7 @@ def callback(data):
 		ard.write(bytes("0,0,0,0,0"))
 ```
 
-> **note**: Подробный разбор кода для связи `Publisher and Subscriber` вы можете найти [здесь](publisher_and_subscriber.md).
+> **note**: Подробный разбор кода для связи `Publisher and Subscriber` вы можете найти [здесь](ros.md#publisher-и-subscriber).
 
 Для запуска всех вышеперечисленных функций используется `main`.
 ``` python
