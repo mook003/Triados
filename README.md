@@ -32,8 +32,8 @@
 
 #### Работа с zed
 * [ROS](docs/zed.md#ros)
- * [Датчики](docs/sensors.md)
- * [Изображение](docs/camera.md)
- * [Глубина](docs/depth.md)
- * [Нейронные сети](docs/object_detection.md)
+  * [Датчики](docs/sensors.md)
+  * [Изображение](docs/camera.md)
+  * [Глубина](docs/depth.md)
+  * [Нейронные сети](docs/object_detection.md)
 * [Pyzed](docs/zed.md#pyzed) (к защите готово НЕ будет)
