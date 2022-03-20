@@ -72,7 +72,8 @@ if __name__ == '__main__':
 Для начала откройте файл Publisher.py в выбранном вами редакторе и добавьте последовательность shebang в самый верх файла, чтобы автоматически использовать интерпретатор Python и операторы `import`:
 ``` python
 #!/usr/bin/env python
-import roslib; roslib.load_manifest('Lesson1')
+import roslib; roslib.load_manifest('<Название вашего проекта>')
 import rospy
 ```
+
 # Сервис и клиент
