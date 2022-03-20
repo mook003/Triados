@@ -27,11 +27,11 @@
 
 #### Взаимодействие с Arduino
 * [Начало работы с Arduino](docs/arduino.md)
-    * [Програмное обеспечение для взаимодействия с Arduino](docs/Arduino software.md)
-    * [Первая программа!](docs/the first arduino program.md)
+  * [Програмное обеспечение для взаимодействия с Arduino](docs/Arduino software.md)
+  * [Первая программа!](docs/the first arduino program.md)
 * [Прорамма для управления двигателями и сервоприводами](docs/servo and motors.md) 
-    * [Управление электродвигателем постоянного тока](docs/dc_motor.md)
-    * [Управление серводвигателем](docs/servomotor.md)
+  * [Управление электродвигателем постоянного тока](docs/dc_motor.md)
+  * [Управление серводвигателем](docs/servomotor.md)
 
 #### Ros
 * [Введение в Ros](docs/ros.md)
