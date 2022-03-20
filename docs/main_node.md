@@ -164,4 +164,4 @@ if __name__ == '__main__':
 Back | <b><a href="move_node.md">Нету</a></b></p>
 
 <p align="right">
-<p align="center"><sup> </sup><a href="../README.md#содержание"><sup>Содержание</sup></a></p>
+<p align="center"><sup>2021-2022 TRIADOS | </sup><a href="../README.md#содержание"><sup>Содержание</sup></a></p>
