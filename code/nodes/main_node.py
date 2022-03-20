@@ -12,9 +12,8 @@ from std_msgs.msg import String
 
 
 
-obj_data = [0, 0, [1,1, 2]]
+obj_data = []
 
-# Hand node communication function
 def hand_com(x, y, z):
 	rospy.wait_for_service("hand_srv")
 	try: 
@@ -27,38 +26,37 @@ def hand_com(x, y, z):
 # Move node communication function
 def move_com(x, y, z):
 	global pub
-	str  = "{} {} {}".format(x, y, z)
-	pub.publish(String(str))
-	print(str)
+	pub.publish(String("{} {} {}".format(x, y, z)))
+	print("{} {} {}".format(x, y, z))
 
 # Received data processing function
 def callback(data):
 	global obj_data
 	obj_data = []
 	rospy.loginfo("***** New Object *****")
-	for i in range(0, len(data.objects)):
-		if data.objects[i].lable == "Person":
-			obj_data.append([data.objects[i].label, data.objects[i].label_id, [data.objects[i].position[0], data.objects[i].position[1], data.objects[i].position[2]], data.objects[i].confidence, data.objects[i].tracking_state ])
+	for i in data.objects:
+		print("find")
+		print(i.sublabel)
+		if i.sublabel == "Orange":
+			obj_data.append([i.label, i.label_id, [i.position[0]-0.0468, i.position[1]+0.0585, i.position[2]], i.confidence, i.tracking_state ])
 			break
-
-def main():
-	#rospy.Subscriber("/zed2/zed_node/obj_det/objects", ObjectsStamped, callback)
-	global obj_data
 	if obj_data:
-		if obj_data[2][2]>1:
-			move_com(obj_data[2][0], obj_data[2][1], obj_data[2][2])
-		else:
-			rep = hand_com(obj_data[2][0], obj_data[2][1], obj_data[2][2])
-			if rep!="done":
-				print("Manipulator error: {}".format(rep) )
-			else:
-				print("Mission completed")
+		print(obj_data)
+		if obj_data[0][2][0]>0.35:
+			move_com(obj_data[0][2][0], obj_data[0][2][1], obj_data[0][2][2])
+		if obj_data[0][2][0]<0.35:
+			print(hand_com(obj_data[0][2][0], obj_data[0][2][1], obj_data[0][2][2]))
+def main():
+	rospy.Subscriber("/zed2/zed_node/obj_det/objects", ObjectsStamped, callback)
+	print("asa")
+	global obj_data
+	print(obj_data)
+
 	rospy.spin()
 
 if __name__ == '__main__':
 	pub = rospy.Publisher('main_node_move', String)
 	rospy.init_node('main_node')
-	
 	main()
 
 
