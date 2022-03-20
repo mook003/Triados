@@ -49,7 +49,6 @@
 
 #### Робот
 * [Сборка подвижной платформы](docs/platform.md)
-* [Ноды для управления](docs/nodes.md)
-  * [Main node](docs/main_node.md)
-  * [Move node](docs/move_node.md)
-  * [Hand node](docs/hand_node.md)
+* [Main node](docs/main_node.md)
+* [Move node](docs/move_node.md)
+* [Hand node](docs/hand_node.md)
