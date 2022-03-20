@@ -159,6 +159,6 @@ if __name__ == '__main__':
 	main()
 ```
 
-<p align="right">Next | <b><a href="move_node.md">Тоже нет</a></b>
+<p align="right">Next | <b><a href="move_node.md">Move node</a></b>
 <br/>
 Back | <b><a href="move_node.md">Нету</a></b></p>
