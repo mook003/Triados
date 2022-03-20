@@ -26,7 +26,7 @@ roscreate-pkg <Название вашего проекта> std_msgs rospy rosc
 rosmake
 ```
 
-> **note:** После названия вашего проекта нужно указать пакеты, которые вы хотите добавить. Например, std_msgs - пакет, который содержит стандартные типы сообщений (Bool, Float64, Int64, String и другие); rospy - библиотека python для работы с ROS; roscpp - библиотека с++ для работы с ROS.
+> **note:** После названия вашего проекта нужно указать пакеты, которые вы хотите добавить. Например, `std_msgs` - пакет, который содержит стандартные типы сообщений (Bool, Float64, Int64, String и другие); `rospy` - библиотека python для работы с ROS; `roscpp` - библиотека с++ для работы с ROS.
 
 Поздравляю! Теперь у вас есть собранный проект и мы можем перейти к написанию программ.
 
@@ -54,7 +54,9 @@ make
 #!/usr/bin/env python
 import roslib; roslib.load_manifest('Lesson1')
 import rospy
+
 from std_msgs.msg import String
+
 def talker():
 	pub = rospy.Publisher('chatter', String)
 	rospy.init_node('talker1')
@@ -69,11 +71,36 @@ if __name__ == '__main__':
 	except rospy.ROSInterruptException: pass
 ```
 
-Для начала откройте файл Publisher.py в выбранном вами редакторе и добавьте последовательность shebang в самый верх файла, чтобы автоматически использовать интерпретатор Python и операторы `import`:
+Для начала откройте файл `Publisher.py` в выбранном вами редакторе и добавьте последовательность shebang в самый верх файла, чтобы автоматически использовать интерпретатор Python и операторы `import`:
 ``` python
 #!/usr/bin/env python
 import roslib; roslib.load_manifest('<Название вашего проекта>')
 import rospy
 ```
+Команда `roslib.load_manifest('<Название вашего проекта>')` добавляет зависимости, указанные в манифесте вашего проекта.
+
+
+Далее импортируем из пакета `std_msgs` тип данных `String`. Благодаря этому программа сможет получать и отправлять данные типа string.
+``` python
+from std_msgs.msg import String
+```
+
+Основой программы является функция `talker`:
+
+``` python
+def talker():
+	pub = rospy.Publisher('chatter', String)
+	rospy.init_node('talker1')
+	while not rospy.is_shutdown():
+		str  = 'Hello world %s' %rospy.get_time
+		rospy.loginfo(str)
+		pub.publish(String(str))
+```
+
+Командой `pub = rospy.Publisher('chatter', String)` мы обьявляем узел `pub`, который будет публиковать данные в топик `chatter` в формате `String`. 
+Следующая строчка, `rospy.init_node('talker')`, сообщает ROS, что название ноды - `talker`.
+`rospy.is_shutdown()` возвращает `false` когда ROS работает.
+`rospy.loginfo(str)` выводит в терминал сообщение с указанием времени и уровня.
+`pub.publish(String(str))` публикует сообщение `str` в формате `String`.
 
 # Сервис и клиент
