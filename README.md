@@ -28,7 +28,7 @@
 #### Взаимодействие с Arduino
 * [Начало работы с Arduino](docs/arduino.md)
   * [Програмное обеспечение для взаимодействия с Arduino](https://github.com/mook003/Triados/blob/main/docs/Arduino%20software.md)
-  * [Первая программа!](docs/the_first_arduino_program.md)
+  * [Первая программа!](https://github.com/mook003/Triados/blob/main/docs/the%20first%20arduino%20program.md)
 * [Прорамма для управления двигателями и сервоприводами](docs/servo_and_motors.md) 
   * [Управление электродвигателем постоянного тока](docs/dc_motor.md)
   * [Управление серводвигателем](docs/servomotor.md)
