@@ -4,9 +4,9 @@
 
 | Параметр | Описание | Значение |
 |-------------------|--------------|--------------|
-| camera_name | ф | ф |
-| camera_model | ф | ф |
-| camera_flip | ф | ф |
+| camera_name | Кастомное название для вашей камеры ZED | текст, стандартное значение = `zed` |
+| camera_model | Тип камеры | `zed`: ZED, `zedm`: ZED-M, `zed2`: ZED 2, `zed2i`: ZED 2i |
+| camera_flip | Переварачивает данные камеры, если она перевёрнута | `true`,  |
 | zed_id   | ф | ф |
 | serial_number |  |  |
 | resolution |  |  |
