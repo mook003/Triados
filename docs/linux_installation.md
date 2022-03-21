@@ -62,7 +62,7 @@ Nvidia Jetson nano - одноплатный компьютер, разработ
 5. Нажмите `Flash!` программе Etcher понадобится примерно 10 минут, если карта поключена через USB3, чтобы обработать и проверить образ.
 6. Когда процесс закончится, Windows может сообщить вам, что не знает, как читать карту и предложить вам отформатировать ее. Просто нажите `Cancel` и отключите microSD карту.
 
-<img src="https://github.com/mook003/Triados/blob/main/docs/images/Etcher_Cancel.png" width="50%">
+<img src="https://github.com/mook003/Triados/blob/main/docs/images/imageWINDOWS/Etcher_Cancel.png" width="50%">
 
 После того как microSD карта готова, можно перейти к [настройке ос на Nvidia Jetson Nano]()
 
