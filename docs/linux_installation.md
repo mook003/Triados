@@ -64,7 +64,7 @@ Nvidia Jetson nano - одноплатный компьютер, разработ
 
 <img src="https://github.com/mook003/Triados/blob/main/docs/images/imageWINDOWS/Etcher_Cancel.png" width="50%">
 
-После того как microSD карта готова, можно перейти к [настройке ос на Nvidia Jetson Nano]()
+После того как microSD карта готова, можно перейти к [настройке ос на Nvidia Jetson Nano](#настройка-и-первый-запуск)
 
 
 #### Если на вашем компьютере стоит MACOS
@@ -74,24 +74,24 @@ Nvidia Jetson nano - одноплатный компьютер, разработ
 1. Пока не вставляйте microSD карту в компьютер
 2. Скачайте, установите и запустите [Etcher](https://www.balena.io/etcher).
 
-<img src="https://github.com/mook003/Triados/blob/main/docs/images/Mac-Etcher.png" width="50%">
+<img src="https://github.com/mook003/Triados/blob/main/docs/images/imageMACOS/Mac-Etcher.png" width="50%">
 
 3. Нажмите `Select image` и укажите заархивированный обрaз, скачанный заранее.
 4. Вставьте вашу microSD карту и нажмите `Ignore`, если появится это окно:
 
-<img src="https://github.com/mook003/Triados/blob/main/docs/images/Mac-Disk_readable.png" width="50%">
+<img src="https://github.com/mook003/Triados/blob/main/docs/images/imageMACOS/Mac-Disk_readable.png" width="50%">
 
 5. Если у Вас не подключено других внешних носителей, то Etcher автоматически выберет microSD карту. В противном случае нажмите `Select drive` и выберите нужный диск.
 6. Нажмите `Flash!`. Ваш Mac может запросить ваш ник и пароль прежде чем позволит программе продолжить.
 
-<img src="https://github.com/mook003/Triados/blob/main/docs/images/Mac-Etcher_permission.png" width="50%">
+<img src="https://github.com/mook003/Triados/blob/main/docs/images/imageMACOS/Mac-Etcher_permission.png" width="50%">
 Программе понадобится примерно 10 минут, если карта поключена через USB3, чтобы обработать и проверить образ.
 
 7. Когда процесс закончится, Мас может сообщить вам, что не знает, как читать карту и предложить вам отформатировать ее. Просто нажите `Eject` и отключите SD-карту.
 
-<img src="https://github.com/mook003/Triados/blob/main/docs/images/Mac-Disk_readable.png" width="50%">
+<img src="https://github.com/mook003/Triados/blob/main/docs/images/imageMACOS/Mac-Disk_readable.png" width="50%">
 
-После того как SD-карта готова, можно перейти к [настройке ос на Nvidia Jetson Nano]()
+После того как SD-карта готова, можно перейти к [настройке ос на Nvidia Jetson Nano](#настройка-и-первый-запуск)
 
 
 ##### Иструкции для командной строки
@@ -99,7 +99,7 @@ Nvidia Jetson nano - одноплатный компьютер, разработ
 1. Не вставляйте пока Вашу microSD карту, в нескольких шагах ниже Вы узнаете как правильно надо это будет сделать
 2. Откройте терминал
 
-<img src="https://github.com/mook003/Triados/blob/main/docs/images/Mac-Terminal_app.png" width="50%">
+<img src="https://github.com/mook003/Triados/blob/main/docs/images/imageMACOS/Mac-Terminal_app.png" width="50%">
 
 3. Введите эту команду, чтобы увидеть список всех внешних носителей 
 ```bash
@@ -107,15 +107,15 @@ diskutil list external | fgrep '/dev/disk'
 ```
 Например, если к вашему компьютеру уже подключен USB накопитель, то результат будет примерно таким:
 
-<img src="https://github.com/mook003/Triados/blob/main/docs/images/Mac-Terminal_disk_already_attached.png" width="50%">
+<img src="https://github.com/mook003/Triados/blob/main/docs/images/imageMACOS/Mac-Terminal_disk_already_attached.png" width="50%">
 
 4. Вставьте вашу microSD карту. Нажмите `Ignore`, если ваш Mac покажет вам это окно
 
-<img src="https://github.com/mook003/Triados/blob/main/docs/images/Mac-Disk_readable.png" width="50%">
+<img src="https://github.com/mook003/Triados/blob/main/docs/images/imageMACOS/Mac-Disk_readable.png" width="50%">
 
 5. Используйте команду, что и до этого, чтобы вывести список. В списке будет новое устройство - microSD карта в данном примере: `/dev/disk2`
 
-<img src="https://github.com/mook003/Triados/blob/main/docs/images/Mac-Terminal_list_disks.png" width="50%">
+<img src="https://github.com/mook003/Triados/blob/main/docs/images/imageMACOS/Mac-Terminal_list_disks.png" width="50%">
 
 6. Используйте следующую команду, чтобы форматировать microSD карту.
 `ТОЛЬКО БУДЬТЕ ОЧЕНЬ ОСТОРОЖНЫ, ЧТОБЫ НЕ УКАЗАТЬ НЕПРАВИЛЬНЫЙ НОСИТЕЛЬ!`
@@ -124,19 +124,19 @@ sudo diskutil partitionDisk /dev/disk<n> 1 GPT "Free Space" "%noformat%" 100%
 ```
 Например:
 
-<img src='https://github.com/mook003/Triados/blob/main/docs/images/Mac-Terminal_partitions.png' width='50%'>
+<img src='https://github.com/mook003/Triados/blob/main/docs/images/imageMACOS/Mac-Terminal_partitions.png' width='50%'>
 
 7. Используйте эту команду чтобы записать заархивированный образ на microSD карту. Используйте `/dev/rdisk` вместо `/dev/disk`.
 ```bash
 /usr/bin/unzip -p ~/Downloads/jetson_nano_devkit_sd_card.zip | sudo /bin/dd of=/dev/rdisk<n> bs=1m
 ```
-<img src='https://github.com/mook003/Triados/blob/main/docs/images/Mac-Terminal_write_zipped_SD_card.png' width='50%'>
+<img src='https://github.com/mook003/Triados/blob/main/docs/images/imageMACOS/Mac-Terminal_write_zipped_SD_card.png' width='50%'>
 
 8. Индикации процесса не будет (только если вы не нажмете CTRL+t). Когда процесс завершится ваш устройство выведет предупреждение, что не может прочитать microSD карту. Просто нажмите `Eject`
 
-<img src="https://github.com/mook003/Triados/blob/main/docs/images/Mac-Disk_readable.png" width="50%">
+<img src="https://github.com/mook003/Triados/blob/main/docs/images/imageMACOS/Mac-Disk_readable.png" width="50%">
 
-После того как SD-карта готова, можно перейти к [настройке ос на Nvidia Jetson Nano]()
+После того как SD-карта готова, можно перейти к [настройке ос на Nvidia Jetson Nano](#настройка-и-первый-запуск)
 
 #### Инструкции для LINUX
 
@@ -145,25 +145,25 @@ sudo diskutil partitionDisk /dev/disk<n> 1 GPT "Free Space" "%noformat%" 100%
 ##### Инструкции для Etcher
 1. Скачайте, установите и запустите [Etcher](https://www.balena.io/etcher). 
 
-<img src="https://github.com/mook003/Triados/blob/main/docs/images/images-foe-github/Linux-Etcher.png" width="50%">
+<img src="https://github.com/mook003/Triados/blob/main/docs/images/imageLINUX/Linux-Etcher.png" width="50%">
 
 2. Нажмите `Select image` и укажите заархивированный образ, скачанный заранее.
 3. Подключите SD-карту, если она еще не подключена. Если у вас не подключены другие внешние носители, то Etcher автоматически выберет microSD карту. В противном случае нажмите `Change` и выберите microSD карту.
 
-<img src="https://github.com/mook003/Triados/blob/main/docs/images/images-foe-github/Linux-Etcher_Select_Drive.png" width="50%">
+<img src="https://github.com/mook003/Triados/blob/main/docs/images/imageLINUX/Linux-Etcher_Select_Drive.png" width="50%">
 
 4. Нажмите `Flash!`. Ваш ОС может запросить ваш ник и пароль прежде чем позволит программе продолжить.
 
-<img src="https://github.com/mook003/Triados/blob/main/docs/images/images-foe-github/Linux-Etcher_Password.png" width="50%">
+<img src="https://github.com/mook003/Triados/blob/main/docs/images/imageLINUX/Linux-Etcher_Password.png" width="50%">
 
 Программе понадобится примерно 10-15 минут, если карта поключена через USB3, чтобы обработать и проверить образ.
 5. Когда Etcher закончит, извлеките microSD карту с помощью проводника. 
 
-<img src="https://github.com/mook003/Triados/blob/main/docs/images/images-foe-github/Linux-Files_App.png" width="50%">
+<img src="https://github.com/mook003/Triados/blob/main/docs/images/imageLINUX/Linux-Files_App.png" width="50%">
 
 6. Вытащите карту из компьютера
 
-После того как SD-карта готова, можно перейти к [настройке ос на Nvidia Jetson Nano]()
+После того как SD-карта готова, можно перейти к [настройке ос на Nvidia Jetson Nano](#настройка-и-первый-запуск)
 
 ##### Инструкции для командной строки 
 
@@ -174,7 +174,7 @@ dmesg | tail | awk '$3 == "sd" {print}'
 ```
 В этом примере мы видим, что 16гб microSD карта была назначена как `/dev/sda`:
 
-<img src="https://github.com/mook003/Triados/blob/main/docs/images/images-foe-github/Jetson_Nano-Getting_Started-Linux-Terminal_Disk_Assign.png" width="50%">
+<img src="https://github.com/mook003/Triados/blob/main/docs/images/imageLINUX/Jetson_Nano-Getting_Started-Linux-Terminal_Disk_Assign.png" width="50%">
 
 3. Введите эту команду, чтобы записать заархивированный на microSD карту.
 ```bash
@@ -182,17 +182,55 @@ dmesg | tail | awk '$3 == "sd" {print}'
 ```
 Пример:
 
-<img src="https://github.com/mook003/Triados/blob/main/docs/images/images-foe-github/Linux-Terminal_Disk_Write.png" width="50%">
+<img src="https://github.com/mook003/Triados/blob/main/docs/images/imageLINUX/Linux-Terminal_Disk_Write.png" width="50%">
 
 4. Когда процесс завершится, извлеките microSD карту командой
 ```bash
 sudo eject /dev/sd<x>
 ```
-После того как SD-карта готова, можно перейти к [настройке ос на Nvidia Jetson Nano]()
+После того как SD-карта готова, можно перейти к [настройке ос на Nvidia Jetson Nano](#настройка-и-первый-запуск)
 
 
+### Настройка и первый запуск
 
+Есть 2 способа взаимодкйствия с nvidia jetson nano:
+1. [Как с обычным компьютером, спомощью клавиатуры, компьютерной мыши и монитора]()
+2. [И с помощью дополнительного компьютера]()
 
+| | НАТСРОЙКА С МОНИТОРОМ | НАСТРОЙКА С ПОМОЩЬЮ ДОП. КОМПЬЮТЕРА |
+|-----------------|:-----------:|:------------:|
+| Клавиатура, мышь и монитор | Нужны | Не нужны |
+| Дополнительный компьютер | Не нужен | Нужен |
+| Питание | разъем питания на 5V 2A или micro-USB разъем | Только разъем питания на 5V 2A |
+
+#### Настройка с подключенным монитором 
+
+<img src="https://github.com/mook003/Triados/blob/main/docs/images/1setupWITHMONITOR/Jetbot_animation_500x282_2.gif" width="50%">
+
+##### Порядок установки:
+1. Распакуйте бумажную подскавку и поместите ее в коробку 
+2. Вставьте microSD карту с предустановленным на нее образом linux в слот, находящийся в задней части модуля
+
+<img src="https://github.com/mook003/Triados/blob/main/docs/images/1setupWITHMONITOR/Insert_microSD-B01.png" width="50%">
+
+3. Расположите компьютер на бумажной подставке
+4. Включите монитор и подключите его
+5. Подключите клавиатуру и мышь через USB
+6. Подключите питание через разъем micro-USB (или посмотрите [Jetson Nano Developer Kit User Guide](https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit#) для получения более подробной информации об использовании цилиндрического разъема питания). Модуль включится и загрузится автоматически.
+
+##### Первый запуск
+
+Как только Jetson nano ыключится, рядом с разъемом micro-USB загорится зеленый светодиод. При первом запуске вам нужно будет пройти некоторые начальный настройки, в том числе:
+* лицензионное соглашение
+* выбор языка, раскладки клавиатуры и часового пояса
+* создание ника, пароля и псевдонима
+* выбор размера ярлыков приложений, рекомендуется выбрать максимальный из предлагаемых
+
+##### После входа в систему
+
+Вы увидите такой экран. Поздравляем!
+
+<img src="https://github.com/mook003/Triados/blob/main/docs/images/1setupWITHMONITOR/desktop.png" width="50%">
 
 
 
