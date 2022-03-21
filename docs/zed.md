@@ -53,11 +53,11 @@ rosrun rviz rviz
 
 Для добавления нового топика нажмите кнопку `Add`:
 
-<img src="https://github.com/mook003/Triados/blob/main/docs/images/rviz_add.png" width="100%">
+<img src="https://github.com/mook003/Triados/blob/main/docs/images/rviz_add.png" width="90%">
 
 В открывшемся окне выберите `By topic` > `/point_cloud` > `/cloud_registered` > `PointCloud`
 
-<img src="https://github.com/mook003/Triados/blob/main/docs/images/rviz_point_cloud.png" width="100%">
+<img src="https://github.com/mook003/Triados/blob/main/docs/images/rviz_point_cloud.png" width="40%">
 
 # Pyzed
 
