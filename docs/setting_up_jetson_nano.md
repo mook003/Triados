@@ -21,5 +21,5 @@ chmod +x <Название файла>.run
 ## Ros
 
 ### MoveIt
-### Zed-ros-wrapper
+### Zed ros wrapper
 ## Jetson-inference
