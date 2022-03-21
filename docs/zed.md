@@ -49,16 +49,16 @@
 | publish_map_tf | Включить/выключить публикование карты TF кадров | `true`, `false` |
 | map_frame | Frame_id сообщения `pose` | текст, стандартное= `map` |
 | odometry_frame | Frame_id сообщения `odom` | текст, стандартное= `odom` |
-| area_memory_db_path |  | текст, стандартное= ` ` |
+| area_memory_db_path |  | текст, стандартное= `' '` |
 | save_area_memory_db_on_exit |  | `true`, `false`  |
 | area_memory |  | `true`, `false` |
 | floor_alignment |  | `true`, `false` |
-| initial_base_pose |  |  |
+| initial_base_pose |  | вектор, стандартное = `[0.0, 0.0, 0.0, 0.0, 0.0, 0.0]` -> [X, Y, Z, R, P, Y] |
 | init_odom_with_first_valid_pose |  | `true`, `false`  |
-| path_pub_rate |  |  |
-| path_max_count |  |  |
+| path_pub_rate |  | дробное число, стандартное = `2.0` |
+| path_max_count |  | целое число, стандартное = `-1` |
 | two_d_mode |  | `true`, `false` |
-| fixed_z_value |  | двойное дробное число, стандартное значение = `1.0` |
+| fixed_z_value |  | двойное дробное число, стандартное значение = `0.0` |
 
 В ROS есть множество инструментов. Одним из них является rviz - трехмерный визуализатор, используемый для визуализации роботов, среды, в которой они работают, и данных датчиков.
 
