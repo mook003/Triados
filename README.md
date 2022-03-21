@@ -14,11 +14,11 @@
 #### Настройка системы
 * [Установка операционной системы](docs/linux_installation.md)
 * [Настройка Nvidia jetson](docs/setting_up_jetson_nano.md)
-  * [ZED SDK](docs/setting_up_jetson_nano.md)
-  * [Ros](docs/setting_up_jetson_nano.md)
-    * [MoveIt](docs/setting_up_jetson_nano.md)
-    * [Zed-ros-wrapper](docs/setting_up_jetson_nano.md)
-  * [Jetson-inference](docs/setting_up_jetson_nano.md)
+  * [ZED SDK](docs/setting_up_jetson_nano.md#zed-sdk)
+  * [Ros](docs/setting_up_jetson_nano.md#ros)
+    * [MoveIt](docs/setting_up_jetson_nano.md#moveit)
+    * [Zed-ros-wrapper](docs/setting_up_jetson_nano.md#zed-ros-wrapper)
+  * [Jetson-inference](docs/setting_up_jetson_nano.md#jetson-inference)
 
 #### Разъёмы Nvidia jetson
 * [Основные разьёмы](docs/ports.md)
