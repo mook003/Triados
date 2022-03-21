@@ -16,8 +16,7 @@
 | gpu_id | Выброр графического процессора для обработки глубины | целое число, стандартное значение = `-1` |
 | base_frame | `Frame_id` кадра, который опорный референс робота | строка, стандартное значение = `base_link` |
 | verbose | Включить/выключить подробный режим SDK | `true`, `false` |
-| svo_compression | Режим сжатия SVO | `0`: LOSSLESS (PNG/ZSTD), `1`: H264 (AVCHD) ,`2`: H265 (HEVC)
-self_calib	Enable/disable self calibration at starting	 |
+| svo_compression | Режим сжатия SVO | `0`: LOSSLESS (PNG/ZSTD), `1`: H264 (AVCHD) ,`2`: H265 (HEVC) |
 | self_calib | Включить/выключить ручную калибровку при запуске | `true`,`false` |
 
 Параметры с префиксом `video`
