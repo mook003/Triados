@@ -55,11 +55,19 @@ rosrun rviz rviz
 
 <img src="https://github.com/mook003/Triados/blob/main/docs/images/rviz_add.png" width="90%">
 
-В открывшемся окне выберите `By topic` > `/point_cloud` > `/cloud_registered` > `PointCloud`
+В открывшемся окне выберите `By topic` > `/point_cloud` > `/cloud_registered` > `PointCloud` и нажмите `OK`.
 
 <img src="https://github.com/mook003/Triados/blob/main/docs/images/rviz_point_cloud.png" width="40%">
 
+В левой панели Rviz появился новый элемент, `PointCloud`, который вы можете развернуть и узнать информацию о нём. На сцене появилось облако точек. Его можно рассматреть с помощью мыши. 
+
+<img src="https://github.com/mook003/Triados/blob/main/docs/images/rviz_viz_point_cloud.png" width="100%">
+
+Вы также можете добавить и другие топики вышеописанным методом. Например, изображение (`/left_row`) или траекторию движения (`/odom`).
+
 # Pyzed
+
+:x::x::x:
 
 <p align="right">Next | <b><a href="zed_param.md">Настройки камеры</a></b>
 <br/>
