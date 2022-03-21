@@ -40,6 +40,7 @@
 
 #### Работа с zed
 * [ROS](docs/zed.md#ros)
+  * [Настройка камеры](docs/zed_param.md)
   * [Датчики](docs/sensors.md)
   * [Изображение](docs/camera.md)
   * [Глубина](docs/depth.md)
