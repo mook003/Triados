@@ -1,3 +1,24 @@
+# Глубина
+
+Для получения данных о расстоянии запустите следующую программу:
+
+```python
+import roslib; roslib.load_manifest('<Название вашего проекта>')
+import rospy
+
+from sensor_msgs.msg import Image
+
+def callback(msg):
+  print()
+
+def listener():
+	rospy.init_node('listenerBoss')
+	rospy.Subscriber("/zed2/zed_node/depth/depth_registered", Imu, callback)
+	rospy.spin()
+
+if __name__ == '__main__':
+	listener()
+```
 
 <p align="right">Next | <b><a href="object_detection.md">Нейронные сети</a></b>
 <br/>
