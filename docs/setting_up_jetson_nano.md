@@ -96,5 +96,15 @@ source ~/.bashrc
 cd ~/catkin_ws/src
 ```
 
+Клонируйте репозиторий ZED ROS wrapper.
+
+```bash
+cd ~/catkin_ws
+rosdep install --from-paths src --ignore-src -r -y
+```
+
+Проверьте зависимости:
+
+
 ### MoveIt
 ## Jetson-inference
