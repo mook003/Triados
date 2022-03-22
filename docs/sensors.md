@@ -1,3 +1,6 @@
+# Датчики
+
+Для получения информации с датчиков нужно использовать стандартную программу [`Subscriber`](/docs/ros.md#publisher-и-subscriber)
 
 <p align="right">Next | <b><a href="camera.md">Изображение</a></b>
 <br/>
