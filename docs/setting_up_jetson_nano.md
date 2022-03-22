@@ -77,13 +77,24 @@ cd ~/catkin_ws/
 catkin_make
 ```
 
-Теперь обновите ваш .bashrc
+Теперь обновите ваш .bashrc файл с информацией о новом рабочем пространстве.
+
+```bash
+echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc 
+source ~/.bashrc
+```
+
+Ваше рабочее пространстве готово для сборки ваших пакетов.
 
 Мы установили ROS melodic и ряд других пакетов для дальнейшей работы.
 
 ### Zed ros wrapper
 
+Перейдите в папку `src` вашего рабочего пространства `catkin`.
 
+```bash
+cd ~/catkin_ws/src
+```
 
 ### MoveIt
 ## Jetson-inference
