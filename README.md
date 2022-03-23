@@ -27,7 +27,7 @@
   * [PWM](docs/PWM.md)
   * [GPIO](docs/GPIO.md)
 * [Разьёмы камеры MIPI CSI-2](docs/MIPI_CSI.md)
-* [12-контактный разъем кнопок](docs/12-pin_button_header,md)
+* [12-контактный разъем кнопок](docs/12-pin_button_header.md)
 
 #### Взаимодействие с Arduino
 * [Начало работы с Arduino](docs/arduino.md)
