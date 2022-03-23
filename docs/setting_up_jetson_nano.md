@@ -105,6 +105,58 @@ rosdep install --from-paths src --ignore-src -r -y
 
 Проверьте зависимости:
 
+```bash
+cd ~/catkin_ws
+rosdep install --from-paths src --ignore-src -r -y
+```
+
+Команда `rosdep` проверит все элементы в папке `src` и установит недостоющие зависимости.
+
+Теперь скомпилировать `ZED ROS wrapper`:
+
+```bash
+catkin_make -DCMAKE_BUILD_TYPE=Release
+```
 
 ### MoveIt
+
+Для начала проверьте наличие последних обновлений всех пакетов.
+
+```bash
+rosdep update
+sudo apt-get update
+sudo apt-get dist-upgrade
+```
+
+Установите MoveIt
+
+```bash
+sudo apt install ros-melodic-moveit
+```
+
+Перейдите в `catkin_ws/src` и установите зависимости.
+
+```bash
+cd ~/catkin_ws/src
+rosdep install -y --from-paths . --ignore-src --rosdistro melodic
+```
+
+Теперь настройте и собирите ваше рабочее пространсво.
+
+```bash
+cd ~/catkin_ws
+rosdep install -y --from-paths . --ignore-src --rosdistro melodic
+catkin config --extend /opt/ros/${ROS_DISTRO} --cmake-args -DCMAKE_BUILD_TYPE=Release
+catkin build
+```
+
+Добавьте в ваш `.bashrc` код информацию об обновлённом пространстве?
+
+```bash
+echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc 
+source ~/.bashrc
+```
+
+Теперь всё готово для работы с `MoveIt`.
+
 ## Jetson-inference
