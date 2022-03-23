@@ -9,3 +9,8 @@ Arduino -
 В качестве посредника в передаче сигналов с Nvidia Jetson nano был выбран микроконтроллер Arduino (не важно какая модель микроконтроллера, принцип одиноаковый), ведь у него присутсвует необходимое количество пинов и для взаимодейсвия с двигателями, и с сервоприводами.
 
 <img src="https://github.com/mook003/Triados/blob/main/docs/images/pro_micro_pinout.jpg">
+
+<p align="right">Next | <b><a href="i2c.md">i2c</a></b>
+<br/>
+Back | <b><a href="setting_up_jetson_nano.md#moveit.md">MoveIt</a></b></p>
+<p align="center"><sup>2021-2022 TRIADOS | </sup><a href="../README.md#содержание"><sup>Содержание</sup></a></p>
