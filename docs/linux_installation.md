@@ -35,7 +35,7 @@ Nvidia Jetson nano - одноплатный компьютер, разработ
    - [Инструкции для Windows](#если-на-вашем-компьютере-стоит-windows)
    - [Инструкции для Mac](#если-на-вашем-компьютере-стоит-macos)
    - [Инструкции для Linux](#инструкции-для-linux)
-#### Если на вашем компьютере стоит WINDOWS:
+#### Для компьютеров на базе Windows:
 Отформатируйте SD-карту:
 
 <img src="https://github.com/mook003/Triados/blob/main/docs/images/imageWINDOWS/Card_Formatter.png" width="50%">
@@ -69,27 +69,26 @@ Nvidia Jetson nano - одноплатный компьютер, разработ
 После того как microSD карта готова, можно перейти к [настройке ос на Nvidia Jetson Nano](#настройка-и-первый-запуск)
 
 
-#### Если на вашем компьютере стоит MACOS
+#### Для компьютеров на базе MACOS:
 
 Вы можете записать образ с помощью графической программы по типу [Etcher](#%D0%B8%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D0%B8%D0%B8-%D0%B4%D0%BB%D1%8F-etcher) или с [помощью командной строки](#иструкции-для-командной-строки)
 ###### Инструкции для Etcher
-1. Пока не вставляйте microSD карту в компьютер
-2. Скачайте, установите и запустите [Etcher](https://www.balena.io/etcher).
+1. Скачайте, установите и запустите [Etcher](https://www.balena.io/etcher).
 
 <img src="https://github.com/mook003/Triados/blob/main/docs/images/imageMACOS/Mac-Etcher.png" width="50%">
 
-3. Нажмите `Select image` и укажите заархивированный обрaз, скачанный заранее.
-4. Вставьте вашу microSD карту и нажмите `Ignore`, если появится это окно:
+2. Нажмите `Select image` и укажите заархивированный обрaз, скачанный заранее.
+3. Вставьте вашу microSD карту и нажмите `Ignore`, если появится это окно:
 
 <img src="https://github.com/mook003/Triados/blob/main/docs/images/imageMACOS/Mac-Disk_readable.png" width="50%">
 
-5. Если у Вас не подключено других внешних носителей, то Etcher автоматически выберет microSD карту. В противном случае нажмите `Select drive` и выберите нужный диск.
-6. Нажмите `Flash!`. Ваш Mac может запросить ваш ник и пароль прежде чем позволит программе продолжить.
+4. Если у Вас не подключено других внешних носителей, то Etcher автоматически выберет microSD карту. В противном случае нажмите `Select drive` и выберите нужный диск.
+5. Нажмите `Flash!`. Ваш Mac может запросить ваш ник и пароль прежде чем позволит программе продолжить.
 
 <img src="https://github.com/mook003/Triados/blob/main/docs/images/imageMACOS/Mac-Etcher_permission.png" width="50%">
 Программе понадобится примерно 10 минут, если карта поключена через USB3, чтобы обработать и проверить образ.
 
-7. Когда процесс закончится, Мас может сообщить вам, что не знает, как читать карту и предложить вам отформатировать ее. Просто нажите `Eject` и отключите SD-карту.
+6. Когда процесс закончится, Мас может сообщить вам, что не знает, как читать карту и предложить вам отформатировать ее. Просто нажите `Eject` и отключите SD-карту.
 
 <img src="https://github.com/mook003/Triados/blob/main/docs/images/imageMACOS/Mac-Disk_readable.png" width="50%">
 
@@ -98,12 +97,11 @@ Nvidia Jetson nano - одноплатный компьютер, разработ
 
 ##### Иструкции для командной строки
 
-1. Не вставляйте пока Вашу microSD карту, в нескольких шагах ниже Вы узнаете как правильно надо это будет сделать
-2. Откройте терминал
+1. Откройте терминал
 
 <img src="https://github.com/mook003/Triados/blob/main/docs/images/imageMACOS/Mac-Terminal_app.png" width="50%">
 
-3. Введите эту команду, чтобы увидеть список всех внешних носителей 
+2. Введите эту команду, чтобы увидеть список всех внешних носителей 
 ```bash
 diskutil list external | fgrep '/dev/disk'
 ```
@@ -111,16 +109,16 @@ diskutil list external | fgrep '/dev/disk'
 
 <img src="https://github.com/mook003/Triados/blob/main/docs/images/imageMACOS/Mac-Terminal_disk_already_attached.png" width="50%">
 
-4. Вставьте вашу microSD карту. Нажмите `Ignore`, если ваш Mac покажет вам это окно
+3. Вставьте вашу microSD карту. Нажмите `Ignore`, если ваш Mac покажет вам это окно
 
 <img src="https://github.com/mook003/Triados/blob/main/docs/images/imageMACOS/Mac-Disk_readable.png" width="50%">
 
-5. Используйте команду, что и до этого, чтобы вывести список. В списке будет новое устройство - microSD карта в данном примере: `/dev/disk2`
+4. Используйте команду, что и до этого, чтобы вывести список. В списке будет новое устройство - microSD карта в данном примере: `/dev/disk2`
 
 <img src="https://github.com/mook003/Triados/blob/main/docs/images/imageMACOS/Mac-Terminal_list_disks.png" width="50%">
 
-6. Используйте следующую команду, чтобы форматировать microSD карту.
-`ТОЛЬКО БУДЬТЕ ОЧЕНЬ ОСТОРОЖНЫ, ЧТОБЫ НЕ УКАЗАТЬ НЕПРАВИЛЬНЫЙ НОСИТЕЛЬ!`
+5. Используйте следующую команду, чтобы форматировать microSD карту.
+> **note:** Форматирование дтска - процесс разметки области хранения данных электронных носителей информации, в результате которого хранилище будет полностью очищенным. Будьте осторожны! Указав неправильный носитель, вы можете потерять свои данные
 ```bash
 sudo diskutil partitionDisk /dev/disk<n> 1 GPT "Free Space" "%noformat%" 100%
 ```
@@ -128,19 +126,19 @@ sudo diskutil partitionDisk /dev/disk<n> 1 GPT "Free Space" "%noformat%" 100%
 
 <img src='https://github.com/mook003/Triados/blob/main/docs/images/imageMACOS/Mac-Terminal_partitions.png' width='50%'>
 
-7. Используйте эту команду чтобы записать заархивированный образ на microSD карту. Используйте `/dev/rdisk` вместо `/dev/disk`.
+6. Используйте эту команду чтобы записать заархивированный образ на microSD карту. Используйте `/dev/rdisk` вместо `/dev/disk`.
 ```bash
 /usr/bin/unzip -p ~/Downloads/jetson_nano_devkit_sd_card.zip | sudo /bin/dd of=/dev/rdisk<n> bs=1m
 ```
 <img src='https://github.com/mook003/Triados/blob/main/docs/images/imageMACOS/Mac-Terminal_write_zipped_SD_card.png' width='50%'>
 
-8. Индикации процесса не будет (только если вы не нажмете CTRL+t). Когда процесс завершится ваш устройство выведет предупреждение, что не может прочитать microSD карту. Просто нажмите `Eject`
+7. Индикации процесса не будет (только если вы не нажмете CTRL+t). Когда процесс завершится ваш устройство выведет предупреждение, что не может прочитать microSD карту. Просто нажмите `Eject`
 
 <img src="https://github.com/mook003/Triados/blob/main/docs/images/imageMACOS/Mac-Disk_readable.png" width="50%">
 
 После того как SD-карта готова, можно перейти к [настройке ос на Nvidia Jetson Nano](#настройка-и-первый-запуск)
 
-#### Инструкции для LINUX
+#### Для компьютеров на базе LINUX:
 
 Вы можете записать образ с помощью графической программы по типу [Etcher](#%D0%B8%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D0%B8%D0%B8-%D0%B4%D0%BB%D1%8F-etcher) или с [помощью командной строки](#инструкции-для-командной-строки)
 
@@ -154,7 +152,7 @@ sudo diskutil partitionDisk /dev/disk<n> 1 GPT "Free Space" "%noformat%" 100%
 
 <img src="https://github.com/mook003/Triados/blob/main/docs/images/imageLINUX/Linux-Etcher_Select_Drive.png" width="50%">
 
-4. Нажмите `Flash!`. Ваш ОС может запросить ваш ник и пароль прежде чем позволит программе продолжить.
+4. Нажмите `Flash!`. Ваш ОС может запросить ваше имя пользователя и пароль прежде чем позволит программе продолжить.
 
 <img src="https://github.com/mook003/Triados/blob/main/docs/images/imageLINUX/Linux-Etcher_Password.png" width="50%">
 
@@ -225,7 +223,7 @@ sudo eject /dev/sd<x>
 Как только Jetson nano ыключится, рядом с разъемом micro-USB загорится зеленый светодиод. При первом запуске вам нужно будет пройти некоторые начальный настройки, в том числе:
 * лицензионное соглашение
 * выбор языка, раскладки клавиатуры и часового пояса
-* создание ника, пароля и псевдонима
+* создание имени пользователя, пароля и псевдонима
 * выбор размера ярлыков приложений, рекомендуется выбрать максимальный из предлагаемых
 
 ##### После входа в систему
@@ -234,7 +232,7 @@ sudo eject /dev/sd<x>
 
 <img src="https://github.com/mook003/Triados/blob/main/docs/images/1setupWITHMONITOR/desktop.png" width="50%">
 
-<p align="right">Next | <b><a href="setting_up_jetson_nano.md">Настройка Nvidia jetson</a></b>
+<p align="right">Следующий | <b><a href="setting_up_jetson_nano.md">Настройка Nvidia jetson</a></b>
 <br/>
 </p>
 <p align="center"><sup>2021-2022 TRIADOS | </sup><a href="../README.md#содержание"><sup>Содержание</sup></a></p>
