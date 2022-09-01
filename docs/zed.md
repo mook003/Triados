@@ -65,7 +65,7 @@ rosrun rviz rviz
 
 <img src="https://github.com/mook003/Triados/blob/main/docs/images/rviz_viz_point_cloud.png" width="100%">
 
-Вы также можете добавить и другие топики вышеописанным методом. Например, изображение (`/left_row`) или траекторию движения (`/odom`).
+Вы также можете добавить и другие топики вышеописанным методом. Например, изображение - `/left_row` или траекторию движения - `/odom`.
 
 # Pyzed
 
