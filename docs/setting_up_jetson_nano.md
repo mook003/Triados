@@ -7,6 +7,8 @@
 
 Откройте терминал, перейдите в папку к скачанному файлу и сделайте его исполняемым.
 
+> **note:** Терминал можно найти на рабочем столе или вызвать комбинацией `Ctrl+ALT+T`
+
 ```bash
 cd path/to/download/folder
 chmod +x <Название файла>.run
@@ -49,7 +51,7 @@ echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 ```
 
-Скачайте и инициилизируйте rosdep. Он позволяет устанавливать системные зависимости в командной строке.
+Скачайте и инициилизируйте `rosdep`. Он позволяет устанавливать системные зависимости в командной строке.
 
 ```bash
 sudo apt install python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential
@@ -77,14 +79,14 @@ cd ~/catkin_ws/
 catkin_make
 ```
 
-Теперь обновите ваш .bashrc файл с информацией о новом рабочем пространстве.
+Теперь обновите ваш `.bashrc` файл с информацией о новом рабочем пространстве.
 
 ```bash
 echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc 
 source ~/.bashrc
 ```
 
-Ваше рабочее пространстве готово для сборки ваших пакетов.
+Ваше рабочее пространстве готово для сборки пакетов.
 
 Мы установили ROS melodic и ряд других пакетов для дальнейшей работы.
 
@@ -112,7 +114,7 @@ rosdep install --from-paths src --ignore-src -r -y
 
 Команда `rosdep` проверит все элементы в папке `src` и установит недостоющие зависимости.
 
-Теперь скомпилировать `ZED ROS wrapper`:
+Теперь скомпилируйте `ZED ROS wrapper`:
 
 ```bash
 catkin_make -DCMAKE_BUILD_TYPE=Release
@@ -158,8 +160,6 @@ source ~/.bashrc
 ```
 
 Теперь всё готово для работы с `MoveIt`.
-
-## Jetson-inference
 
 <p align="right">Next | <b><a href="40-pin_expansion_header.md">40-контактный разъём расширения</a></b>
 <br/>
