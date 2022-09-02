@@ -9,7 +9,7 @@
 + catkin
 + roscpp
 + stereo_msgs
-+ росконсоль
++ rosconsole
 + robot_state_publisher
 + urdf
 + sensor_msgs
