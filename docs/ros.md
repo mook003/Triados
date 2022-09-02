@@ -1,6 +1,7 @@
 # Введение в Ros
 
 Операционная система робота (ROS) - это набор программных библиотек и инструментов, которые помогают создавать приложения для роботов. Главной особенностью данной системы является то, что все процессы выполняются параллельно в отдельных нодах или связи клиент-сервер.
+
 <img src="https://github.com/mook003/Triados/blob/main/docs/images/topic.png" width="100%">
 
 # Создание первого проекта
@@ -27,12 +28,12 @@ rosmake
 ```
 
 > **note:** После названия вашего проекта нужно указать пакеты, которые вы хотите добавить. Например, `std_msgs` - пакет, который содержит стандартные типы сообщений (Bool, Float64, Int64, String и другие); `rospy` - библиотека python для работы с ROS; `roscpp` - библиотека с++ для работы с ROS.
-> **note:** Также перед каждым запуском программы ROS в новом терминале нужно выполнять команду ``
+> **note:** Также перед каждым запуском программы ROS в новом терминале нужно выполнять команду `export ROS_PACKAGE_PATH=-/<Название вашей папки>:$ROS_PACKAGE_PATH`
 
 Поздравляю! Теперь у вас есть собранный проект и мы можем перейти к написанию программ.
 
 # Publisher и subscriber
-Приступим к написанию нод для связи Publisher и subscriber.
+Приступим к написанию нод для связи Publisher и Subscriber.
 
 Для начала перейдите в папку проекта командой `roscd`, создайте папку для нод и два текстовых документа. 
 
@@ -46,7 +47,7 @@ chmod +x nodes/Subscriber.py
 make
 ```
 Для запуска программ через ROS нужно сделать их исполняемыми командой `chmod +x`. 
-> **note:** После каждого изменения структуры вашего проекта нужно заново его собирать.
+> **note:** После каждого изменения структуры вашего проекта нужно заново его собирать командой `make`.
 
 Перейдём к коду.
 
@@ -72,7 +73,7 @@ if __name__ == '__main__':
 	except rospy.ROSInterruptException: pass
 ```
 
-Для начала откройте файл `Publisher.py` в выбранном вами редакторе и добавьте последовательность shebang в самый верх файла, чтобы автоматически использовать интерпретатор Python и операторы `import`:
+Для начала откройте файл `Publisher.py` в выбранном вами редакторе и добавьте последовательность `shebang` в самый верх файла, чтобы автоматически использовать интерпретатор Python и операторы `import`:
 ``` python
 #!/usr/bin/env python
 import roslib; roslib.load_manifest('<Название вашего проекта>')
@@ -81,7 +82,7 @@ import rospy
 Команда `roslib.load_manifest('<Название вашего проекта>')` добавляет зависимости, указанные в манифесте вашего проекта.
 
 
-Далее импортируем из пакета `std_msgs` тип данных `String`. Благодаря этому программа сможет получать и отправлять данные типа string.
+Далее импортируем из пакета `std_msgs` тип данных `String`. Благодаря этому программа сможет получать и отправлять данные типа `String` или же текст.
 ``` python
 from std_msgs.msg import String
 ```
@@ -91,7 +92,7 @@ from std_msgs.msg import String
 ``` python
 def talker():
 	pub = rospy.Publisher('chatter', String)
-	rospy.init_node('talker1')
+	rospy.init_node('talker')
 	while not rospy.is_shutdown():
 		str  = 'Hello world %s' %rospy.get_time
 		rospy.loginfo(str)
@@ -122,8 +123,8 @@ def callback(data):
 	rospy.loginfo(rospy.get_name()+"$s I heard %s", data.data)
 
 def listener():
-	rospy.init_node('listenerBoss')
-	rospy.Subscriber("main_node_move", String, callback)
+	rospy.init_node('listener')
+	rospy.Subscriber("chatter", String, callback)
 	rospy.spin()
 
 if __name__ == '__main__':
@@ -137,10 +138,10 @@ def callback(data):
 ```
 Эта функция выводит название своей ноды командой `rospy.get_name()` и данные от Publisher.
 
-Далее идёт функция `listener`, которая называет данную ноду `listenerBoss` и получает типданных `String` от узла `chatter`, передавая их в функцию `callback`.
+Далее идёт функция `listener`, которая называет данную ноду `listener` и получает типданных `String` от узла `chatter`, передавая их в функцию `callback`.
 ```python
 def listener():
-	rospy.init_node('listenerBoss')
+	rospy.init_node('listener')
 	rospy.Subscriber("chatter", String, callback)
 	rospy.spin()
 ```
@@ -179,6 +180,8 @@ float64 Sum
 string Status_out
 ```
 Переменные, идущие до `---`, отправляются клиентом, а те, которые идут после, принимаются в качестве ответа.
+int64 может содержать 64-битные целые числа (от $-2^{63}$ до $2^{63}-1$)
+float64 может представлять числа 
 
 Теперь откройте файл `CMakeList.txt` в вашем проекте и раскоментирйте строчку `#rosbuild_genmsg()` и `#rosbuild_gensrv()`.
 
