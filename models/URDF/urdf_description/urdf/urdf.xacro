@@ -1,0 +1,195 @@
+<?xml version="1.0" ?>
+<robot name="urdf" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find urdf_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find urdf_description)/urdf/urdf.trans" />
+<xacro:include filename="$(find urdf_description)/urdf/urdf.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="-0.018419121453372034 -0.04347962787930961 0.022466381149105926" rpy="0 0 0"/>
+    <mass value="1.1098343590164523"/>
+    <inertia ixx="0.004864" iyy="0.00191" izz="0.003524" ixy="8.4e-05" iyz="0.000364" ixz="7.2e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://urdf_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://urdf_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="joint_1_1">
+  <inertial>
+    <origin xyz="0.021067555565236 -0.008067130091660152 0.08478288411578291" rpy="0 0 0"/>
+    <mass value="0.6803438042551072"/>
+    <inertia ixx="0.000673" iyy="0.000739" izz="0.000369" ixy="-1e-06" iyz="5.7e-05" ixz="-2.3e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.044317 -0.010886 -0.028435" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://urdf_description/meshes/joint_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.044317 -0.010886 -0.028435" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://urdf_description/meshes/joint_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="joint_2_1">
+  <inertial>
+    <origin xyz="0.019708748243424945 -0.008710378611916121 0.06171005750597783" rpy="0 0 0"/>
+    <mass value="0.6571313645916408"/>
+    <inertia ixx="0.000431" iyy="0.000479" izz="0.000346" ixy="-0.0" iyz="3.6e-05" ixz="-2.3e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.042317 -0.010852 -0.133935" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://urdf_description/meshes/joint_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.042317 -0.010852 -0.133935" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://urdf_description/meshes/joint_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="hand_joint_1">
+  <inertial>
+    <origin xyz="0.026861916140880633 0.05321124155566673 0.010768291967462373" rpy="0 0 0"/>
+    <mass value="0.44231002244726775"/>
+    <inertia ixx="0.000276" iyy="0.000217" izz="0.000341" ixy="-4.5e-05" iyz="-3.2e-05" ixz="-2.7e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.041317 -0.010473 -0.212435" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://urdf_description/meshes/hand_joint_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.041317 -0.010473 -0.212435" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://urdf_description/meshes/hand_joint_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="hand_jaw_1_1">
+  <inertial>
+    <origin xyz="0.01409096992122242 0.0191761656149391 -0.010805354765224873" rpy="0 0 0"/>
+    <mass value="0.05289902818942328"/>
+    <inertia ixx="4.2e-05" iyy="1.2e-05" izz="5.3e-05" ixy="-1.6e-05" iyz="3e-06" ixz="2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.008917 -0.061479 -0.211133" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://urdf_description/meshes/hand_jaw_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.008917 -0.061479 -0.211133" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://urdf_description/meshes/hand_jaw_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="hand_jaw_2_1">
+  <inertial>
+    <origin xyz="-0.015303524972097124 0.02064973026808329 -0.00840814371449003" rpy="0 0 0"/>
+    <mass value="0.047882225429755725"/>
+    <inertia ixx="3.8e-05" iyy="1e-05" izz="4.8e-05" ixy="1.4e-05" iyz="2e-06" ixz="-1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.033917 -0.061491 -0.208133" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://urdf_description/meshes/hand_jaw_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.033917 -0.061491 -0.208133" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://urdf_description/meshes/hand_jaw_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="ZED2__1__1">
+  <inertial>
+    <origin xyz="6.45889991882781e-07 0.024439619285158795 0.001327836880933353" rpy="0 0 0"/>
+    <mass value="1.1947522184193673"/>
+    <inertia ixx="0.000179" iyy="0.002923" izz="0.002939" ixy="-0.0" iyz="5e-06" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.023498 0.110189 -0.299798" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://urdf_description/meshes/ZED2__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.023498 0.110189 -0.299798" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://urdf_description/meshes/ZED2__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Rev1" type="continuous">
+  <origin xyz="-0.044317 0.010886 0.028435" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="joint_1_1"/>
+  <axis xyz="-1.0 0.0 -0.0"/>
+</joint>
+
+<joint name="Rev2" type="continuous">
+  <origin xyz="0.002 -3.4e-05 0.1055" rpy="0 0 0"/>
+  <parent link="joint_1_1"/>
+  <child link="joint_2_1"/>
+  <axis xyz="-1.0 0.0 -0.0"/>
+</joint>
+
+<joint name="Rev3" type="continuous">
+  <origin xyz="0.001 -0.000379 0.0785" rpy="0 0 0"/>
+  <parent link="joint_2_1"/>
+  <child link="hand_joint_1"/>
+  <axis xyz="-1.0 0.0 -0.0"/>
+</joint>
+
+<joint name="Rev12" type="continuous">
+  <origin xyz="0.0324 0.051006 -0.001302" rpy="0 0 0"/>
+  <parent link="hand_joint_1"/>
+  <child link="hand_jaw_1_1"/>
+  <axis xyz="0.0 0.003889 -0.999992"/>
+</joint>
+
+<joint name="Rev13" type="continuous">
+  <origin xyz="0.0074 0.051018 -0.004302" rpy="0 0 0"/>
+  <parent link="hand_joint_1"/>
+  <child link="hand_jaw_2_1"/>
+  <axis xyz="-0.0 -0.003889 0.999992"/>
+</joint>
+
+<joint name="Rigid14" type="fixed">
+  <origin xyz="-0.023498 -0.110189 0.299798" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="ZED2__1__1"/>
+</joint>
+
+</robot>
