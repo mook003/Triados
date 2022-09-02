@@ -1,6 +1,34 @@
 # MoveIt
 Для расчёта кинематики манипулятора или же геометрии движения манипулятора относительно заданной системы координат, не рассматривая силы и моменты, порождающие это движение, мы будем использовать програмное обеспечение [MoveIt](https://moveit.ros.org). Оно создано для планирования движения, 3D восприятия, исключения столкновений с объектами и применяется во множдестве [роботов](https://moveit.ros.org/robots)
 
+## Подготовка манипулятора
+
+Для начала скачайте следующий [файл](https://github.com/mook003/Triados/tree/main/models/URDF/urdf_description) и распакуйте установленный архив в папку `.../catkin_ws/src/`
+
+Данная папка содержит URDF (Universal Robot Description Format/ Универсальный Формат Описания Робота) файл и необходимые для него файлы и зависимости. Он содержит полное описание робота: 3D-модель, расположение соединений, массу элементов и их инерцию, материал и другие характеристики. Как редактировать и создавать новый URDF файл мы объесняем [здесь](https://www.youtube.com/watch?v=tkwmB6n3s_g)
+
+Приступим к созданию файла конфтгурации. 
+
+Запустите помощника по настройке MOVEit следующей командой:
+
+```bash
+roslaunch moveit_setup_assistant setup_assistant.launch
+```
+
+### Загрузка файлов
+
+В открывшемся окне будут две действующие кнопки: `Create New MoveIt Configuration Package (Создать новый пакет конфигурации)` и `Edit Existing MoveIt Configuration Package (Редакитровать новый пакет конфигурации)` 
+
+Нажмите на `Create New MoveIt Configuration Package`
+
+<img src="https://github.com/mook003/Triados/blob/main/docs/setup_assistant_start.png" width="100%">
+
+Нажмите на появившеюся кнопку `browse` и укажите путь к файлу `urdf.xacro`, расположенному в `.../catkin_ws/src/urdf_description/urdf/`, и загрузите файлы соответствующей кнопкой.
+
+### Создание матрицы самоколлизий
+
+На панели слева выберите `Self-Collisions` и нажмите `Generate Collision Matrix`, оставив `Sampling Density` стандартным.
+
 <p align="right">Next | <b><a href="platform.md">Сборка подвижной платформы</a></b>
 <br/>
 Back | <b><a href="manipulator_manual.md">Сборка манипулятора</a></b></p>
