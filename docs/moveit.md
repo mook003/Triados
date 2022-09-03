@@ -47,7 +47,7 @@ roslaunch moveit_setup_assistant setup_assistant.launch
 
 В итоге вы должны получить следующий результат:
 
-<img src="https://github.com/mook003/Triados/blob/main/docs/setup_assistant_self_collisions.png" width="100%">
+<img src="https://github.com/mook003/Triados/blob/main/docs/setup_assistant_virtual_joints.png" width="100%">
 
 ### Добавление групп планирования
 
@@ -75,14 +75,46 @@ roslaunch moveit_setup_assistant setup_assistant.launch
 + Введите название группы в `Group Name`
 > **note:**  Любой язык, кроме английского, может вызвать ошибки
 + Остальные значения оставьте по умолчанию
++ Нажмите на `Add Links`
++ Выберите `hand_jaw_1_1` и `hand_jaw_2_1` и добавьте их в группу
++ Нажмите `Save`
+
+<img src="https://github.com/mook003/Triados/blob/main/docs/setup_assistant_planning_groups_3.png" width="100%">
 
 ### Добавление поз робота
 
+Вы можете добавлять определённые фиксированные позы. Например, вы можете добавить исходное положение или позицию для каких-либо сценариев
+
++ Выберите на панели `Robot Poses`
++ Нажмите `Add Poses`
++ Укажите название позы
++ Двигая слайдеры, выберите необходимую позу
++ Нажмите `Save`
+
+> **note:**  позы создаются для определённых групп планирования
+
+<img src="https://github.com/mook003/Triados/blob/main/docs/setup_assistant_robot_poses.png" width="100%">
+
 ### Конечные эффекторы
+
+Теперь нужно обозначить группу захвата как специальную группу. Над группами, которые являются конечными эффекторами, можно выполнять специальные операции
+
++ Выберите на панели `End Effectors`
++ Нажмите ` Add End Effector`
++ Укажите название конечного эффектора
++ В `End Effector Group` укажите название группы планирования захвата
++ Выберите `hand_joint_1` в качестве `Parent Link`
++ `Parent Link` оставьте по умолчанию
+
+<img src="https://github.com/mook003/Triados/blob/main/docs/setup_assistant_end_effectors.png" width="100%">
 
 ### Добавление пассивных соединений
 
+В разделе `Passive Joints` вы можете добавить соединения, которые не могут управляться роботом, а значит решатель кинематики не сможет планировать движение данного сустава. В нашем манипуляторе нет пассивных соединений, поэтому мы пропустим этот шаг
+
 ### 3D восприятие
+
+В разделе `3D Perception` Вы можете добавить 
 
 ### симуляция Gazebo
 
