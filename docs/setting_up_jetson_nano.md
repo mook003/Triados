@@ -163,5 +163,5 @@ source ~/.bashrc
 
 <p align="right">Следующий | <b><a href="40-pin_expansion_header.md">40-контактный разъём расширения</a></b>
 <br/>
-Back | <b><a href="linux_installation.md">Установка операционной системы</a></b></p>
+Предыдущий | <b><a href="linux_installation.md">Установка операционной системы</a></b></p>
 <p align="center"><sup>2021-2022 TRIADOS | </sup><a href="../README.md#содержание"><sup>Содержание</sup></a></p>
