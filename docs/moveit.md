@@ -21,7 +21,7 @@ roslaunch moveit_setup_assistant setup_assistant.launch
 
 Нажмите на `Create New MoveIt Configuration Package`
 
-<img src="https://github.com/mook003/Triados/blob/main/docs/setup_assistant_start.png" width="100%">
+<img src="https://github.com/mook003/Triados/blob/main/docs/images/setup_assistant_start.png" width="100%">
 
 Нажмите на появившеюся кнопку `browse` и укажите путь к файлу `urdf.xacro`, расположенному в `.../catkin_ws/src/urdf_description/urdf/`, и загрузите файлы соответствующей кнопкой.
 
@@ -29,7 +29,7 @@ roslaunch moveit_setup_assistant setup_assistant.launch
 
 На панели слева выберите `Self-Collisions` и нажмите `Generate Collision Matrix`, оставив `Sampling Density` по умолчанию.
 
-<img src="https://github.com/mook003/Triados/blob/main/docs/setup_assistant_self_collisions.png" width="100%">
+<img src="https://github.com/mook003/Triados/blob/main/docs/images/setup_assistant_self_collisions.png" width="100%">
 
 Данная процедура необходима для исключения пар связей от проверки столкновений для сокращения времени обработки планирования движения. Исключение может происходить на основе разных факторов: если пара всегда находится в столкновении, если соединения никогда не сталкиваются и прочие. `Sampling Density` влияет на то, сколько позиций будет проверено на самоколлизию. Большее значение данного свойства будет затрачивать больше времени на вычисления, а меньшие - может привести к исключению тех связей, которые не следует отключать.
 
@@ -47,7 +47,7 @@ roslaunch moveit_setup_assistant setup_assistant.launch
 
 В итоге вы должны получить следующий результат:
 
-<img src="https://github.com/mook003/Triados/blob/main/docs/setup_assistant_virtual_joints.png" width="100%">
+<img src="https://github.com/mook003/Triados/blob/main/docs/images/setup_assistant_virtual_joints.png" width="100%">
 
 ### Добавление групп планирования
 
@@ -56,7 +56,7 @@ roslaunch moveit_setup_assistant setup_assistant.launch
 + На панели слева выберите `Planning Groups`
 + Нажмите `Add Group`
 
-<img src="https://github.com/mook003/Triados/blob/main/docs/setup_assistant_planning_groups_1.png" width="100%">
+<img src="https://github.com/mook003/Triados/blob/main/docs/images/setup_assistant_planning_groups_1.png" width="100%">
 
 Для начала создадим группу планирования для руки:
 
@@ -67,7 +67,7 @@ roslaunch moveit_setup_assistant setup_assistant.launch
 + Нажмите `Add Joints`, в появившемся окне выберите соединения `Rev1`, `Rev2` и `Rev3`, зажимая `Shift` и нажмите кнопку `>`
 + Нажмите `Save`
 
-<img src="https://github.com/mook003/Triados/blob/main/docs/setup_assistant_planning_groups_2.png" width="100%">
+<img src="https://github.com/mook003/Triados/blob/main/docs/images/setup_assistant_planning_groups_2.png" width="100%">
 
 Теперь добавим захват:
 
@@ -79,7 +79,7 @@ roslaunch moveit_setup_assistant setup_assistant.launch
 + Выберите `hand_jaw_1_1` и `hand_jaw_2_1` и добавьте их в группу
 + Нажмите `Save`
 
-<img src="https://github.com/mook003/Triados/blob/main/docs/setup_assistant_planning_groups_3.png" width="100%">
+<img src="https://github.com/mook003/Triados/blob/main/docs/images/setup_assistant_planning_groups_3.png" width="100%">
 
 ### Добавление поз робота
 
@@ -93,7 +93,7 @@ roslaunch moveit_setup_assistant setup_assistant.launch
 
 > **note:**  позы создаются для определённых групп планирования
 
-<img src="https://github.com/mook003/Triados/blob/main/docs/setup_assistant_robot_poses.png" width="100%">
+<img src="https://github.com/mook003/Triados/blob/main/docs/images/setup_assistant_robot_poses.png" width="100%">
 
 ### Конечные эффекторы
 
@@ -106,7 +106,7 @@ roslaunch moveit_setup_assistant setup_assistant.launch
 + Выберите `hand_joint_1` в качестве `Parent Link`
 + `Parent Link` оставьте по умолчанию
 
-<img src="https://github.com/mook003/Triados/blob/main/docs/setup_assistant_end_effectors.png" width="100%">
+<img src="https://github.com/mook003/Triados/blob/main/docs/images/setup_assistant_end_effectors.png" width="100%">
 
 ### Добавление пассивных соединений
 
@@ -136,7 +136,7 @@ roslaunch moveit_setup_assistant setup_assistant.launch
 
 5. `Max Update Rate:` Частота, с которой карта будет обновляться
 
-<img src="https://github.com/mook003/Triados/blob/main/docs/setup_assistant_3d_perception.png" width="100%">
+<img src="https://github.com/mook003/Triados/blob/main/docs/images/setup_assistant_3d_perception.png" width="100%">
 
 Также после сборки файла конфигурации будет создан файл `sensor_manager.launch.xml` в `<конфигурация манипулятора>/launch/`. В нём содержатся несколько дополнительных настроек:
 
@@ -164,14 +164,14 @@ roslaunch moveit_setup_assistant setup_assistant.launch
 + Добавьте группу планирования руки и нажмите `Save`
 > **note:** Вы также можете добавлять соединения по отдельности через `Add Individual Joints`
 
-<img src="https://github.com/mook003/Triados/blob/main/docs/setup_assistant_ros_controllers.png" width="100%">
+<img src="https://github.com/mook003/Triados/blob/main/docs/images/setup_assistant_ros_controllers.png" width="100%">
 
 ### Добавление информации об авторе
 
 + Выберите на панели `Author Information`
 + Введите в соответствующие поля Ваши имя и почту
 
-<img src="https://github.com/mook003/Triados/blob/main/docs/setup_assistant_author.png" width="100%">
+<img src="https://github.com/mook003/Triados/blob/main/docs/images/setup_assistant_author.png" width="100%">
 
 ### Создание файла конфигурации
 
