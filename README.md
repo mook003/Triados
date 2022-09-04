@@ -22,10 +22,9 @@
 
 #### Разъёмы Nvidia jetson
 * [40-контактный разъем расширения](docs/40-pin_expansion_header.md)
-  * [i2c](docs/i2c.md)
-  * [UART](docs/UART.md)
-  * [PWM](docs/PWM.md)
-  * [GPIO](docs/GPIO.md)
+  * [i2c](docs/40-pin_expansion_header.md#i2c)
+  * [GPIO](docs/40-pin_expansion_header.md#gpio)
+  * [UART](docs/40-pin_expansion_header.md#uart)
 * [Разьёмы камеры MIPI CSI-2](docs/MIPI_CSI.md)
 * [12-контактный разъем кнопок](docs/12-pin_button_header.md)
 
