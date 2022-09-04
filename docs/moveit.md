@@ -17,7 +17,7 @@ roslaunch moveit_setup_assistant setup_assistant.launch
 
 ### Загрузка файлов
 
-В открывшемся окне будут две действующие кнопки: `Create New MoveIt Configuration Package (Создать новый пакет конфигурации)` и `Edit Existing MoveIt Configuration Package (Редакитровать новый пакет конфигурации)` 
+В открывшемся окне будут две действующие кнопки: `Create New MoveIt Configuration Package` (Создать новый пакет конфигурации) и `Edit Existing MoveIt Configuration Package` (Редакитровать новый пакет конфигурации) 
 
 Нажмите на `Create New MoveIt Configuration Package`
 
