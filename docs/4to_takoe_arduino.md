@@ -18,7 +18,13 @@
 
 <img src=https://github.com/mook003/Triados/blob/main/docs/images/Скриншот%2004-09-2022%20191808.png>
 
+4. Перейдите в инструменты > порт > выберите COM порт, к которому подключена ваша плата
+
+<img src=https://github.com/mook003/Triados/blob/main/docs/images/Скриншот%2004-09-2022%20193920.png>
+
 <p align="right">Тудой | <b><a href="...">...</a></b>
 <br/>
 Сюдой | <b><a href="...">...</a></b></p>
 <p align="center"><sup>2021-2022 TRIADOS | </sup><a href="../README.md#содержание"><sup>Содержание</sup></a></p>
+
+ 
