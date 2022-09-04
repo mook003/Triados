@@ -181,6 +181,8 @@ roslaunch moveit_setup_assistant setup_assistant.launch
 + Нажмите `Browse`
 + В новом окне перейдите в `.../catkin_ws/src/`, нажмите на кнопку создания новой папки (в правом верхнем углу) и введите её название
 + Нажмите `Generate Package` и ожидайте
++ 
+<img src="https://github.com/mook003/Triados/blob/main/docs/images/setup_assistant_config.png" width="100%">
 
 После сборки вы можете закрыть прогрмму кнопкой `Exit Setup Assistant`
 
