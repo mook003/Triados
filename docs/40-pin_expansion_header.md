@@ -30,7 +30,19 @@ J41 Pin 1 (3.3V) -> PCA9685 VCC
 J41 Pin 6 (GND) -> PCA9685 GND
 ```
 
-<p align="right">Next | <b><a href="i2c.md">i2c</a></b>
+# GPIO
+
+GPIO - интерфейс для связи между компонентами системы. Это универсальный разьём, позволяющий компьютеру обмениваться информацией между периферийными устройствами.
+На Nvidia Jetson это реализовано на пинах, отмеченных голубым цветом. 
+
+
+# UART
+
+UART - интерфейс для передачи данных, используемых для "общения" вычислительных устройств друг с лругом. 
+На Nvidia Jetson это реализовано на пинах 8 и 10.
+
+
+<p align="right">Следующая страница | <b><a href="i2c.md">i2c</a></b>
 <br/>
-Back | <b><a href="setting_up_jetson_nano.md#moveit.md">MoveIt</a></b></p>
+Предыдущая страница | <b><a href="setting_up_jetson_nano.md#moveit.md">MoveIt</a></b></p>
 <p align="center"><sup>2021-2022 TRIADOS | </sup><a href="../README.md#содержание"><sup>Содержание</sup></a></p>
