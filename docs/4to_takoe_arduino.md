@@ -22,12 +22,17 @@
 
 <img src=https://github.com/mook003/Triados/blob/main/docs/images/Скриншот%2004-09-2022%20193920.png>
 
-5. На этом шаге мы пробуем загрузить простейшую программу "Мигающий светодиод" для првоерки работоспособности Arduino. Перейдите в `файл` > `Примеры` > `01.Basics` > `Blink`
+5. На этом шаге мы пробуем загрузить простейшую программу "Мигающий светодиод" для проверки работоспособности Arduino. Перейдите в `файл` > `Примеры` > `01.Basics` > `Blink`
 
 <img src=https://github.com/mook003/Triados/blob/main/docs/images/Скриншот%2004-09-2022%20193639.png>
 
-<img src=>
-<img src=>
+6. Загрузите прошивку на Arduino 
+
+<img src=https://github.com/mook003/Triados/blob/main/docs/images/Скриншот%2004-09-2022%20200203.png>
+
+7. Если прошивка загрузилась в плату и у Arduino мигает светодиод, то можно начинать загружать код для управления двигателями и сервоприводами!!!
+
+<img src=https://github.com/mook003/Triados/blob/main/docs/images/Скриншот%2004-09-2022%20200424.png>
 
 <p align="right">Тудой | <b><a href="...">...</a></b>
 <br/>
