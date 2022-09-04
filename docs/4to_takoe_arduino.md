@@ -43,9 +43,9 @@
 
 Перейдите по данной ссылке и выберите [сайт](https://github.com/SoldierJazz/CH341SER-Driver-For-ch340-ch341), соответствующий вашей операционной системе.
 
-<p align="right">Тудой | <b><a href="...">...</a></b>
+<p align="right">Следующий | <b><a href="https://github.com/mook003/Triados/blob/main/docs/the%20first%20arduino%20program.md">Програмное обеспечение для взаимодействия с Arduino</a></b>
 <br/>
-Сюдой | <b><a href="...">...</a></b></p>
+Предыдущий | <b><a href="https://github.com/mook003/Triados/blob/main/docs/arduino.md">Что такое Arduino и для чего оно нужно в нашем роботе?</a></b></p>
 <p align="center"><sup>2021-2022 TRIADOS | </sup><a href="../README.md#содержание"><sup>Содержание</sup></a></p>
 
  
