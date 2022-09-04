@@ -10,6 +10,9 @@
 <img src=https://github.com/mook003/Triados/blob/main/docs/images/Скриншот%2004-09-2022%20190907.png>
 
 Так выглядит "девственная" среда разработки.
+
+<img src=https://github.com/mook003/Triados/blob/main/docs/images/Скриншот%2004-09-2022%20190654.png>
+
 2. Подключите Arduino к компьютеру.
 3. Перейдите в инструменты > выберите плату, которая соответствует вашей (в нашем случае это Arduion UNO и NANO)
 
