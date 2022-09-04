@@ -31,7 +31,7 @@
 
 #### Взаимодействие с Arduino
 * [Начало работы с Arduino](docs/arduino.md)
-  * [Что такое Arduino и для чего оно нужно в нашем роботе?](https://github.com/mook003/Triados/blob/main/docs/Arduino%20software.md)
+  * [Что такое Arduino и для чего оно нужно в нашем роботе?](https://github.com/mook003/Triados/blob/main/docs/4to_takoe_arduino.md)
   * [Програмное обеспечение для взаимодействия с Arduino](https://github.com/mook003/Triados/blob/main/docs/the%20first%20arduino%20program.md)
 * [Прорамма для управления двигателями и сервоприводами](docs/servo_and_motors.md) 
   * [Управление электродвигателем постоянного тока](docs/dc_motor.md)
