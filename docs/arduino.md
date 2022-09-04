@@ -10,7 +10,7 @@ Arduino -
 
 <img src="https://github.com/mook003/Triados/blob/main/docs/images/pro_micro_pinout.jpg">
 
-<p align="right">Next | <b><a href="https://github.com/mook003/Triados/blob/main/docs/4to_takoe_arduino.md"></a></b>
+<p align="right">Next | <b><a href="https://github.com/mook003/Triados/blob/main/docs/4to_takoe_arduino.md">Что такое Arduino и для чего оно нужно в нашем роботе?</a></b>
 <br/>
 Back | <b><a href="12-pin_button_header.md">12-контактный разъем кнопок</a></b></p>
 <p align="center"><sup>2021-2022 TRIADOS | </sup><a href="../README.md#содержание"><sup>Содержание</sup></a></p>
