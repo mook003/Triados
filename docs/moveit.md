@@ -41,7 +41,7 @@ roslaunch moveit_setup_assistant setup_assistant.launch
 
 + На панели слева выберите `Virtual Joints` и нажмите `Add Virtual Joint`
 + Укажите `Virtual Joint Name` как `virtual_joint`
-+ Укажите основание манипулятора в качестве дочерней ссылки и мировой :x: как родительскую, установив `base_link` в `Child Link` и вписав `world` в `Parent Frame Name` 
++ Укажите основание манипулятора в качестве дочерней ссылки и мировой фрейм как родительскую, установив `base_link` в `Child Link` и вписав `world` в `Parent Frame Name` 
 + Установите тип `Joint Type` как `fixed`
 + Нажмите `Save`
 
