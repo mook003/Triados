@@ -37,7 +37,7 @@ roslaunch moveit_setup_assistant setup_assistant.launch
 
 Виртуальные суставы используются в основном для привязки робота к окружающему миру. Вам потребуется создать соединение между основанием манипулятора и `world frame`.
 
-> **note:** Информацию о `world frame` и других :x: Вы можете найти [здесь](https://www.youtube.com/watch?v=dQw4w9WgXcQ)  :x:
+> **note:** Информацию о `world frame` и других фреймах Вы можете найти [здесь](https://www.youtube.com/watch?v=dQw4w9WgXcQ)  :x:
 
 + На панели слева выберите `Virtual Joints` и нажмите `Add Virtual Joint`
 + Укажите `Virtual Joint Name` как `virtual_joint`
@@ -139,7 +139,8 @@ roslaunch moveit_setup_assistant setup_assistant.launch
 <img src="https://github.com/mook003/Triados/blob/main/docs/setup_assistant_3d_perception.png" width="100%">
 
 Также после сборки файла конфигурации будет создан файл `sensor_manager.launch.xml` в `<конфигурация манипулятора>/launch/`. В нём содержатся несколько дополнительных настроек:
-1. `octomap_frame:` :x: 
+
+1. `octomap_frame:` фрейм карты 
 
 2. `octomap_resolution:` Задаёт разрешение карты (в м)
 
@@ -153,9 +154,35 @@ roslaunch moveit_setup_assistant setup_assistant.launch
 
 ### Управление ROS
 
+`ROS Control` - набор пакетов, которые включают интерфейсы контроллеров, диспетчеры контроллеров, передатчики и аппаратные интерфейсы. Это позволяет внедрять разнообразные датчики, например для контроля положения или усилия. В данном руководстве мы рассмотрим добавление контроллера положения соединений
+
++ Выберите на панели `ROS Control`
++ Нажмите `Add Controller` 
++ Введите имя контроллера в `Controller Name`
++ Укажите `position_controllers/JointPositionController` в `Controller Type`
++ Нажмите `Add Planning Group Joints`
++ Добавьте группу планирования руки и нажмите `Save`
+> **note:** Вы также можете добавлять соединения по отдельности через `Add Individual Joints`
+
+<img src="https://github.com/mook003/Triados/blob/main/docs/setup_assistant_ros_controllers.png" width="100%">
+
 ### Добавление информации об авторе
 
++ Выберите на панели `Author Information`
++ Введите в соответствующие поля Ваши имя и почту
+
+<img src="https://github.com/mook003/Triados/blob/main/docs/setup_assistant_author.png" width="100%">
+
 ### Создание файла конфигурации
+
+Последний этап!
+
++ Выберите на панели `Configuration Files`
++ Нажмите `Browse`
++ В новом окне перейдите в `.../catkin_ws/src/`, нажмите на кнопку создания новой папки (в правом верхнем углу) и введите её название
++ Нажмите `Generate Package` и ожидайте
+
+После сборки вы можете закрыть прогрмму кнопкой `Exit Setup Assistant`
 
 <p align="right">Next | <b><a href="platform.md">Сборка подвижной платформы</a></b>
 <br/>
