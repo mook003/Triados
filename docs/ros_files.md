@@ -16,12 +16,28 @@ touch nodes/test.launch
 
 ```xml
 <launch>
-  <node pkg="test_package" type="topic_publisher.py" name="topic_publisher1"/>
-  <node pkg="test_package" type="topic_subscriber" name="topic_subscriber1"/>
-  <node pkg="test_package" type="topic_publisher.py" name="topic_publisher2"/>
-  <node pkg="test_package" type="topic_subscriber" name="topic_subscriber2"/>
+  <node pkg="<название пакета>" type="Publisher.py" name="<название ноды>"/>
+  <node pkg="название пакета" type="Subscriber" name="<название ноды>"/>
 </launch>
 ```
+
+Тэг `node` отвечает за ноды и имеет следующие параметры
+
+|Параметр|Описание|Значение|
+|-------------------|--------------|
+|pkg|пакет ноды|текст|
+|type|тип ноды|текс|
+|name|название ноды|текс|
+|args|аргументы, которые получит нода при запуске|значения через пробел|
+|machine|название машины, на которой будет запущена нода (ROS может быть запущен на нескольких компьютерах, объединенных единой сетью)|текст|
+|respawn|автоматически перезапускает ноду, если она закрылась|true/false|
+|respawn_delay|задержка перезапуска|секунды|
+|required|при смерти ноды будет убит и весь файл запуска|true/false|
+|ns|запуск ноды в пространстве имён `foo`|foo|
+|clear_params|удаление всех параметров в частном пространстве имен узла перед запуском.|true/false|
+|output|screen - отчтёт будет публиковаться в терминале, log - отчёт будет записан в логах|log/screen|
+|launch-prefix|префиксы, с которыми будет запущена нода|аргументы префиксов|
+|if|true - узел будет запущен, false - узел не будет запущен (можно создавать сложные файлы запуска, где ноды будут запускаться при выполнении определённых условий)|true/false|
 
 <p align="right">Next | <b><a href="zed.md">Работа с ZED</a></b>
 <br/>
