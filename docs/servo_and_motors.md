@@ -1,3 +1,5 @@
+# Прорамма для управления двигателями и сервоприводами
+
 Для начала нужно установить все необходимы библиотеки для передачи данных с компьютера на Arduino и управления сервопроводами с двигателями.
 1. Перейдите в `Скетч` > `Подключить библиотеку` > `Управлять библиотеками...` 
 
@@ -72,7 +74,7 @@ void loop() {
 
 4. Как загружать код в Arduino, Вы уже знаете. Так что загружаем и кайфуем)
 
-<p align="right">Следующий | <b><a href="https://github.com/mook003/Triados/blob/main/docs/ros.md">Начало работы с Arduino</a></b>
+<p align="right">Следующий | <b><a href="https://github.com/mook003/Triados/blob/main/docs/ros.md">Введение в Ros</a></b>
 <br/>
 Предыдущий | <b><a href="https://github.com/mook003/Triados/blob/main/docs/4to_takoe_arduino.md">Начало работы с Arduino</a></b></p>
 <p align="center"><sup>2021-2022 TRIADOS | </sup><a href="../README.md#содержание"><sup>Содержание</sup></a></p>
