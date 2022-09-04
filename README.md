@@ -50,10 +50,10 @@
   * [Изображение](docs/camera.md)
   * [Глубина](docs/depth.md)
   * [Нейронные сети](docs/object_detection.md)
-* [Pyzed](docs/zed.md#pyzed) (к защите готово НЕ будет)
+* [Pyzed](docs/zed.md#pyzed) :x:
 
 #### Манипулятор
-* [Сборка манипулятора](docs/manipulator_manual.md) (в начале в коробке будет сидеть маленький Ярослав, который всё соберёт) нет
+* [Сборка манипулятора](docs/manipulator_manual.md) 
 * [MoveIt](docs/moveit.md)
 
 #### Робот
