@@ -44,10 +44,11 @@ void loop() {
         MSS.servoWrite(1, ints[2]); // угол поворота 2 сервопривода
         MSS.servoWrite(2, ints[3]); // угол поворота 3 сервопривода
         MSS.servoWrite(3, ints[4]); // угол поворота 4 сервопривода
-        Serial.println((MSS.analogRead(0)-130)/2.13888); //
-        Serial.println((MSS.analogRead(1)-130)/2.13888);
-        Serial.println((MSS.analogRead(2)-130)/2.13888);
-        Serial.println((MSS.analogRead(3)-130)/2.13888);
+        MSS.servoWrite(4, ints[5]); // угол поворота 5 сервопривода
+        Serial.println((MSS.analogRead(0)-130)/2.13888); // отображение в порте угла поворота сервоприводов
+        Serial.println((MSS.analogRead(1)-130)/2.13888); // -||-
+        Serial.println((MSS.analogRead(2)-130)/2.13888); // -||-
+        Serial.println((MSS.analogRead(3)-130)/2.13888); // -||-
         break;
       }
   }
