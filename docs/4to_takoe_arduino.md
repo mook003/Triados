@@ -35,7 +35,9 @@
 <img src=https://github.com/mook003/Triados/blob/main/docs/images/Скриншот%2004-09-2022%20200424.png>
 
 # А что же делать, если при загрузке вылетает ошибка???
+<img src=https://github.com/mook003/Triados/blob/main/docs/images/Скриншот%2004-09-2022%20202520.png>
 1. Проверьте, привильность выбора COM порта и/или выбранную плату `Инструменты` > `Порт`/`Плата`
+2. 
 
 
 <p align="right">Тудой | <b><a href="...">...</a></b>
