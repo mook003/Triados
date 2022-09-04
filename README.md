@@ -30,8 +30,8 @@
 * [12-контактный разъем кнопок](docs/12-pin_button_header.md)
 
 #### Взаимодействие с Arduino
-* [Начало работы с Arduino](docs/arduino.md)
-  * [Что такое Arduino и для чего оно нужно в нашем роботе?](https://github.com/mook003/Triados/blob/main/docs/4to_takoe_arduino.md)
+* [Что такое Arduino и для чего оно нужно в нашем роботе?](docs/arduino.md)
+  * [Начало работы с Arduino](https://github.com/mook003/Triados/blob/main/docs/4to_takoe_arduino.md)
   * [Програмное обеспечение для взаимодействия с Arduino](https://github.com/mook003/Triados/blob/main/docs/the%20first%20arduino%20program.md)
 * [Прорамма для управления двигателями и сервоприводами](docs/servo_and_motors.md) 
   * [Управление электродвигателем постоянного тока](docs/dc_motor.md)
