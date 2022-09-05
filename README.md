@@ -21,11 +21,11 @@
   * :x: [Jetson-inference](docs/setting_up_jetson_nano.md#jetson-inference)
 
 #### Разъёмы Nvidia jetson
-* [40-контактный разъем расширения :banana:](docs/40-pin_expansion_header.md)
+* [40-контактный разъем расширения ](docs/40-pin_expansion_header.md)
   * [i2c :heavy_exclamation_mark:](docs/40-pin_expansion_header.md#i2c)
   * [GPIO :heavy_exclamation_mark:](docs/40-pin_expansion_header.md#gpio)
   * [UART :heavy_exclamation_mark:](docs/40-pin_expansion_header.md#uart)
-* [Разьёмы камеры MIPI CSI-2 :banana:](docs/MIPI_CSI-2_camera_connectors.md)
+* [Разьёмы камеры MIPI CSI-2 ](docs/MIPI_CSI-2_camera_connectors.md)
 * [12-контактный разъем кнопок :x:](docs/12-pin_button_connector.md)
 
 #### Взаимодействие с Arduino
