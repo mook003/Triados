@@ -222,19 +222,21 @@ Universal Robot Description Format (URDF) - Универсальный форм�
 
 ### Fusion360 и [fusion2urdf](https://github.com/syuntoku14/fusion2urdf)
 
-Данный способ является самым простым, но подойдёт он лишь тем, у кого есть приложение Fusion360. Откройте терминал на своём основном компьютере и введите следующую команду.
+Данный способ является самым простым, но подойдёт он лишь тем, у кого есть приложение Fusion360. Скачайте репозиторий на Ваш основной компьютер, распакуйте его,  откройте терминал и введите следующую команду:
 
 Windows
 ```PowerShell
-cd <path to fusion2urdf>
+cd <путь к файлу fusion2urdf>
 Copy-Item ".\URDF_Exporter\" -Destination "${env:APPDATA}\Autodesk\Autodesk Fusion 360\API\Scripts\" -Recurse
 ```
 
 macOS 
 ```bash
-cd <path to fusion2urdf>
+cd <путь к файлу fusion2urdf>
 cp -r ./URDF_Exporter "$HOME/Library/Application Support/Autodesk/Autodesk Fusion 360/API/Scripts/"
 ```
+
+
 
 <p align="right">Next | <b><a href="zed.md">Работа с ZED</a></b>
 <br/>
