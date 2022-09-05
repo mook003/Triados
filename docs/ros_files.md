@@ -216,6 +216,10 @@ while not rospy.is_shutdown():
 
 Тег `remap` может содержать только атрибуты, продемонстрированные выше.
 
+## URDF файл
+
+Данный файл 
+
 <p align="right">Next | <b><a href="zed.md">Работа с ZED</a></b>
 <br/>
 Back | <b><a href="ros.md">Введение в ROS</a></b></p>
