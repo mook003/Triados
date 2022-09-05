@@ -236,6 +236,8 @@ cd <путь к файлу fusion2urdf>
 cp -r ./URDF_Exporter "$HOME/Library/Application Support/Autodesk/Autodesk Fusion 360/API/Scripts/"
 ```
 
+Скачайте [этот]() файл и откройте во fusion360. Перейдите в utilities > ADD-INS > Scripts and Add-Ind. В открывшемся меню нажмите на URDF_Exporter и выберите папку для созданного файла.
+
 
 
 <p align="right">Next | <b><a href="zed.md">Работа с ZED</a></b>
