@@ -218,7 +218,11 @@ while not rospy.is_shutdown():
 
 ## URDF файл
 
-Данный файл 
+Universal Robot Description Format (URDF) - Универсальный формат описания робота, основанный на XML и необходимый множеству программ для визуализации и симуляции. Существует не менее 3 способов создания этого файла: простой, сложный и дорогой.
+
+### Fusion360 и [fusion2urdf](https://github.com/syuntoku14/fusion2urdf)
+
+Самый простой способ создания URDF - воспользоваться соответствующим аддоном для Fusion 360. Для этого 
 
 <p align="right">Next | <b><a href="zed.md">Работа с ZED</a></b>
 <br/>
