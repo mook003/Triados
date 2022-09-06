@@ -26,7 +26,7 @@
   * [GPIO :heavy_exclamation_mark:](docs/40-pin_expansion_header.md#gpio)
   * [UART :heavy_exclamation_mark:](docs/40-pin_expansion_header.md#uart)
 * [Разьёмы камеры MIPI CSI-2 ](docs/MIPI_CSI-2_camera_connectors.md)
-* [12-контактный разъем кнопок :x:](docs/12-pin_button_connector.md)
+* [12-контактный разъем :x:](docs/12-pin_header.md)
 
 #### Взаимодействие с Arduino
 * [Что такое Arduino и для чего оно нужно в нашем роботе?](docs/arduino.md)
