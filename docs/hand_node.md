@@ -2,9 +2,18 @@
 
 ``` python
 #!/usr/bin/env python
-import roslib; roslib.load_manifest('aiden')
+
+import sys
+import copy
 import rospy
+from math import pi
+import moveit_msgs.msg
 from aiden.srv import *
+import moveit_commander
+import geometry_msgs.msg
+from std_msgs.msg import String
+import roslib; roslib.load_manifest('aiden')
+from moveit_commander.conversions import pose_to_list
 
 angle = [0,0,"false"]
 joint_angle = [0,0,0,0]
@@ -34,6 +43,7 @@ def main_com():
 	rospy.spin()
 
 if __name__ == '__main__':
+	ard = serial.Serial('/dev/ttyACM0', baudrate = 115200)
 	main_com()
 ```
 
