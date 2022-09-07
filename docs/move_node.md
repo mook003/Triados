@@ -27,13 +27,13 @@ def callback(data):
 	motion_coord = [math.atan(coord[1] / coord[0]) * 180 / math.pi, coord[0]]
 	print("motion_coord: {}".format(motion_coord))
 	if motion_coord[0] > 2:
-		ard.write(bytes("0,80,-80,80,-80"))
+		ard.write(bytes("1,80,-80,80,-80"))
 	if motion_coord[0] < -2:
-		ard.write(bytes("0,-80,80,-80,80"))
+		ard.write(bytes("1,-80,80,-80,80"))
 	if motion_coord[0] > -2 and motion_coord[0] < 2 and motion_coord[1] > 0.35:
-		ard.write(bytes("0,-80,-80,-80,-80"))
+		ard.write(bytes("1,-80,-80,-80,-80"))
 	if motion_coord[1] <= 0.35:
-		ard.write(bytes("0,0,0,0,0"))
+		ard.write(bytes("1,0,0,0,0"))
 def main():
 	rospy.init_node('move_node')
 	#rate = rospy.Rate(1)
