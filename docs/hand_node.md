@@ -29,13 +29,6 @@ def move(req):
 	res = hand(req.a, req.b, req.c)
 	return MessagesResponse("nah")
 
-def callbackIMU1 (data):
-	global angle
-	if angle[2]!="false":
-		angle[0] = data.orientation.z * 90/0.71
-		angle[2] = "true"
-	angle[1] = data.orientation.z * 90/0.71
-
 def main_com():
 	rospy.init_node("hand_node")
 	main_srv = rospy.Service("hand_srv", Messages, move)
