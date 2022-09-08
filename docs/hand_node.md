@@ -35,9 +35,9 @@ def move(req):
 
 	pose_goal = geometry_msgs.msg.Pose()
 	pose_goal.orientation.w = 1.0
-	pose_goal.position.x = 0.4
-	pose_goal.position.y = 0.1
-	pose_goal.position.z = 0.4
+	pose_goal.position.x = reg[0]
+	pose_goal.position.y = reg[1]
+	pose_goal.position.z = reg[2]
 
 	move_group.set_pose_target(pose_goal)
 
@@ -47,18 +47,11 @@ def move(req):
 
 	move_group.clear_pose_targets()
 
-	move_group.execute(plan, wait=True)
+	pose = move_group.execute(plan, wait=True)
 
-	global angle
-	rospy.Subscriber("/zed2/zed_node/imu/data", Imu, callbackIMU)
-	angle[0] += 180
-	while angle[0]+1<angle[1] or angle[0]+1<angle[1]:
-		rospy.Subscriber("/zed2/zed_node/imu/data", Imu, callbackIMU)
-		ard.write(bytes("0,60,-60,60,-60"))
-	angle[2] ="false"
-	print("vse")
-	res = hand(req.a, req.b, req.c)
-	return MessagesResponse("nah")
+	ard.write(bytes("0,pose[0],pose[1],pose[2],pose[3]"))
+	
+	return MessagesResponse("done")
 
 def main_com():
 	rospy.init_node("hand_node")
