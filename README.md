@@ -18,7 +18,7 @@
   * [Ros](docs/setting_up_jetson_nano.md#ros)
     * [Zed-ros-wrapper](docs/setting_up_jetson_nano.md#zed-ros-wrapper)
     * [MoveIt](docs/setting_up_jetson_nano.md#moveit)
-  * :x: [Jetson-inference](docs/setting_up_jetson_nano.md#jetson-inference)
+  * [Jetson-inference](docs/setting_up_jetson_nano.md#jetson-inference)
 
 #### Разъёмы Nvidia jetson
 * [40-контактный разъем расширения ](docs/40-pin_expansion_header.md)
