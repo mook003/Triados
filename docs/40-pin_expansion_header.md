@@ -42,7 +42,7 @@ UART - интерфейс для передачи данных, использу
 На Nvidia Jetson это реализовано на пинах 8 и 10.
 
 
-<p align="right">Дальше | <b><a href="MIPI_CSI-2_camera_connectors.md.md">i2c</a></b>
+<p align="right">Дальше | <b><a href="MIPI_CSI-2_camera_connectors.md.md">Разъём камеры MIPI CSI-2</a></b>
 <br/>
 Назад | <b><a href="setting_up_jetson_nano.md#moveit.md">MoveIt</a></b></p>
 <p align="center"><sup>2021-2022 TRIADOS | </sup><a href="../README.md#содержание"><sup>Содержание</sup></a></p>
