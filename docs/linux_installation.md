@@ -232,7 +232,7 @@ sudo eject /dev/sd<x>
 
 <img src="https://github.com/mook003/Triados/blob/main/docs/images/1setupWITHMONITOR/desktop.png" width="50%">
 
-<p align="right">Следующий | <b><a href="setting_up_jetson_nano.md">Настройка Nvidia jetson</a></b>
+<p align="right">Дальше | <b><a href="setting_up_jetson_nano.md">Настройка Nvidia jetson</a></b>
 <br/>
 </p>
 <p align="center"><sup>2021-2022 TRIADOS | </sup><a href="../README.md#содержание"><sup>Содержание</sup></a></p>
