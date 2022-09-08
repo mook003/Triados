@@ -161,6 +161,60 @@ source ~/.bashrc
 
 Теперь всё готово для работы с `MoveIt`.
 
+## Jetpack Setup
+
+Для начала обновите все необходимые инструменты
+
+```bash
+sudo apt-get update
+sudo apt-get install git cmake
+```
+
+Клонируйте репозиторий jetson-inference:
+
+```bash
+$ git clone https://github.com/dusty-nv/jetson-inference
+$ cd jetson-inference
+$ git submodule update --init
+```
+
+Для работы с Python 3.6 установите следующие пакеты:
+
+```bash
+$ sudo apt-get install libpython3-dev python3-numpy
+```
+
+Создайте директорию проекта и соберите её.
+
+```bash
+cd jetson-inference    # omit if working directory is already jetson-inference/ from above
+mkdir build
+cd build
+cmake ../
+```
+
+После загрузки откроется окно установщика моделей нейронных сетей.
+
+:x:
+
+В нём вы можете выбрать интересующие сети или даже все. Выбранные сети отмечаются * (значение можно изменить пробелом). В конце нажмите Enter.
+
+Для запуска загрузчика заново введите это:
+```bash
+cd jetson-inference/tools
+./download-models.sh
+```
+
+Теперь соберите весь проект
+```bash
+cd jetson-inference/build
+$ make
+$ sudo make install
+$ sudo ldconfig
+```
+
+Поздравляю! Вы подготовили вашего робота к использованию.
+
 <p align="right">Следующий | <b><a href="40-pin_expansion_header.md">40-контактный разъём расширения</a></b>
 <br/>
 Предыдущий | <b><a href="linux_installation.md">Установка операционной системы</a></b></p>
