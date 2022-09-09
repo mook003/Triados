@@ -67,10 +67,6 @@ rosrun rviz rviz
 
 Вы также можете добавить и другие топики вышеописанным методом. Например, изображение - `/left_row` или траекторию движения - `/odom`.
 
-# Pyzed
-
-:x::x::x:
-
 <p align="right">Next | <b><a href="zed_param.md">Настройки камеры</a></b>
 <br/>
 Back | <b><a href="ros.md">Введение в ROS</a></b></p>
