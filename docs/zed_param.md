@@ -100,7 +100,7 @@
 ``` bash
 rosrun rqt_reconfigure rqt_reconfigure
 ```
-Выберите zed2 > zed_node. В открывшемся вы можете изменять все вышеперечисленные динамические параметры камеры, передвигая ползунки.
+Выберите `zed2` > `zed_node`. В открывшемся вы можете изменять все вышеперечисленные динамические параметры камеры, передвигая ползунки.
 
 <img src="https://github.com/mook003/Triados/blob/main/docs/images/rqt_rec.png" width="100%">
 
