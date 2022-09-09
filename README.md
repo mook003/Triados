@@ -46,7 +46,7 @@
   * [Изображение](docs/camera.md)
   * [Глубина](docs/depth.md)
   * [Нейронные сети](docs/object_detection.md)
-* [](docs/zed.md#pyzed)
+ [](docs/zed.md#pyzed)
 
 #### Манипулятор
 * [Сборка манипулятора](docs/manipulator_manual.md) 
