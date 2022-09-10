@@ -38,7 +38,6 @@
   * [Publisher and Subscriber](docs/ros.md#publisher-и-subscriber)
   * [Сервис и клиент](docs/ros.md#сервис-и-клиент)
   * [Типы файлов ROS](docs/ros_files.md)
-* []
 
 #### Работа с zed
 * [ROS](docs/zed.md#ros)
