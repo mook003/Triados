@@ -38,6 +38,7 @@
   * [Publisher and Subscriber](docs/ros.md#publisher-и-subscriber)
   * [Сервис и клиент](docs/ros.md#сервис-и-клиент)
   * [Типы файлов ROS](docs/ros_files.md)
+* []
 
 #### Работа с zed
 * [ROS](docs/zed.md#ros)
@@ -46,7 +47,7 @@
   * [Изображение](docs/camera.md)
   * [Глубина](docs/depth.md)
   * [Нейронные сети](docs/object_detection.md)
- [](docs/zed.md#pyzed)
+ [Jetson-inference и ROS](docs/jetson-inference&ros.md)
 
 #### Манипулятор
 * [Сборка манипулятора](docs/manipulator_manual.md) 
