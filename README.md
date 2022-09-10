@@ -47,7 +47,7 @@
   * [Изображение](docs/camera.md)
   * [Глубина](docs/depth.md)
   * [Нейронные сети](docs/object_detection.md)
- [Jetson-inference и ROS](docs/jetson-inference&ros.md)
+* [Jetson-inference и ROS](docs/jetson-inference&ros.md)
 
 #### Манипулятор
 * [Сборка манипулятора](docs/manipulator_manual.md) 
