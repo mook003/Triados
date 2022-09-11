@@ -111,7 +111,7 @@
 
 ## Дополнение
 
-Настоящий Кодекс поведения адаптирован из [Соглашения с участниками] [homepage]
+Настоящий Кодекс поведения адаптирован из [Соглашения с участниками](https://www.contributor-covenant.org)
 версии 2.0, доступного по адресу
 https://www.contributor-covenant.org/version/2/0/code_of_conduct.html .
 
