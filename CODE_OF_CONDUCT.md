@@ -112,13 +112,10 @@
 ## Дополнение
 
 Настоящий Кодекс поведения адаптирован из [Соглашения с участниками](https://www.contributor-covenant.org)
-версии 2.0, доступного по адресу
-https://www.contributor-covenant.org/version/2/0/code_of_conduct.html .
+версии 2.0, доступного по адресу.
 
 Руководящие принципы воздействия на сообщество были вдохновлены [
-Лестницей обеспечения соблюдения кодекса поведения Mozilla].(https://github.com/mozilla/diversity ).
-
-[homepage]: https://www.contributor-covenant.org
+Лестницей обеспечения соблюдения кодекса поведения Mozilla](https://github.com/mozilla/diversity).
 
 Ответы на распространенные вопросы об этом кодексе поведения см. в разделе Часто задаваемые вопросы по адресу
 https://www.contributor-covenant.org/faq . Переводы доступны по адресу
