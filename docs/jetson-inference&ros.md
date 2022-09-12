@@ -82,7 +82,7 @@ roslaunch ros_deep_learning segnet.ros1.launch input:=v4l2:///dev/video0 output:
 
 | Название топика | I/O | Тип сообщения | Описание |  
 |-------------------|--------------|--------------|--------------|
-|`image_i`|Ввод|[`sensor_msgs/Image`](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Image.html)|Необработанное входное изображение|
+|`image_in`|Ввод|[`sensor_msgs/Image`](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Image.html)|Необработанное входное изображение|
 |`classification`|Вывод|[`vision_msgs/Classification2D`](http://docs.ros.org/en/melodic/api/vision_msgs/html/msg/Classification2D.html)|Результаты классификации (идентификатор класса + уверенность)|
 |`vision_info`|Вывод|[`vision_msgs/VisionInfo`](http://docs.ros.org/en/melodic/api/vision_msgs/html/msg/VisionInfo.html)|Метаданные видения (название списка параметров меток классов)|
 |`overlay`|Вывод|[`sensor_msgs/Image`](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Image.html)|Входное изображение c наложенными результатами классификации|
@@ -91,13 +91,13 @@ roslaunch ros_deep_learning segnet.ros1.launch input:=v4l2:///dev/video0 output:
 
 | Название параметра | Тип | Значение по умолчанию | Описание | 
 |-------------------|--------------|--------------|--------------|
-|`model_name`|`string`|`googlenet`|Имя встроенной модели (допустимые значения см. Здесь)|
-|`model_path`|`string`|`""`|Путь к пользовательской модели `caffe` или `ONNX`|
-|`prototxt_path`|`string`|`""`|Путь к пользовательскому файлу `caffe prototxt`|
-|`input_blob`|`string`|`data`|Имя входного слоя `DNN`|
-|`output_blob`|`string`|`prob`|Имя выходного слоя `DNN`|
-|`class_labels_path`|`string`|`""`|Путь к файлу пользовательских меток классов|
-|`class_labels_HASH`|`vector<string>`|class names|Список меток классов, где `HASH` зависит от модели (фактическое имя параметра можно найти в топике `vision_info`)|
+|`model_name`|`строка`|`googlenet`|Имя встроенной модели (допустимые значения см. Здесь)|
+|`model_path`|`строка`|`""`|Путь к пользовательской модели `caffe` или `ONNX`|
+|`prototxt_path`|`строка`|`""`|Путь к пользовательскому файлу `caffe prototxt`|
+|`input_blob`|`строка`|`data`|Имя входного слоя `DNN`|
+|`output_blob`|`строка`|`prob`|Имя выходного слоя `DNN`|
+|`class_labels_path`|`строка`|`""`|Путь к файлу пользовательских меток классов|
+|`class_labels_HASH`|`vector<строка>`|class names|Список меток классов, где `HASH` зависит от модели (фактическое имя параметра можно найти в топике `vision_info`)|
 
 ### DetectMet Node
 
@@ -105,21 +105,26 @@ roslaunch ros_deep_learning segnet.ros1.launch input:=v4l2:///dev/video0 output:
 
 | Название топика | I/O | Тип сообщения | Описание |  
 |-------------------|--------------|--------------|--------------|
-|`image_i`|Ввод|[`sensor_msgs/Image`](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Image.html)|Необработанное входное изображение|
-|`classification`|Вывод|[`vision_msgs/Classification2D`](http://docs.ros.org/en/melodic/api/vision_msgs/html/msg/Classification2D.html)|Результаты классификации (идентификатор класса + уверенность)|
+|`image_in`|Ввод|[`sensor_msgs/Image`](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Image.html)|Необработанное входное изображение|
+|`detections`|Вывод|[`vision_msgs/Detection2DArray`](http://docs.ros.org/melodic/api/vision_msgs/html/msg/Detection2DArray.html)|Результаты обнаружения (ограничительные рамки, идентификаторы классов, уверенность)|
 |`vision_info`|Вывод|[`vision_msgs/VisionInfo`](http://docs.ros.org/en/melodic/api/vision_msgs/html/msg/VisionInfo.html)|Метаданные видения (название списка параметров меток классов)|
 |`overlay`|Вывод|[`sensor_msgs/Image`](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Image.html)|Входное изображение c наложенными результатами классификации|
 
 Параметры
 
-| Название параметра | Тип | Значение по умолчанию | Описание | 
-|||||
-|||||
-|||||
-|||||
-|||||
-|||||
-|||||
+| Название параметра | Тип | Значение по умолчанию | Описание |
+|-------------------|--------------|--------------|--------------|
+|`model_name`|`строка`|`"ssd-mobilenet-v2"`|Имя встроенной модели (допустимые значения см. Здесь)|
+|`model_path`|`строка`|`""`|Путь к пользовательской модели `caffe` или `ONNX`|
+|`prototxt_path	`|`строка`|`""`|Путь к пользовательскому файлу `caffe prototxt`|
+|`input_blob`|`строка`|`data`|Имя входного слоя `DNN`|
+|`output_cvg`|`строка`|`coverage`|Имя выходного слоя `DNN` (покрытие/баллы)|
+|`output_bbox`|`строка`|`bboxes`|Имя выходного слоя `DNN` (ограничительные рамки)|
+|`class_labels_path`|`строка`|`""`|Путь к файлу пользовательских меток классов|
+|`class_labels_HASH`|`vector<строка>`|названия классов|Список меток классов, где `HASH` зависит от модели (фактическое имя параметра можно найти в разделе `vision_info`)|
+|`overlay_flags`|`строка`|`none`,`box`,`labels`,`conf`|Флаги, используемые для создания наложения (некоторая комбинация `none`,`box`,`labels`,`conf`)|
+|`mean_pixel_value`|`дробное значение`|`0.0`|Среднее значение вычитания пикселей, применяемое к входным данным (обычно 0)|
+|`threshold`|`дробное значение`|`0.5`|Минимальное доверительное значение для положительных обнаружений (0,0 - 1,0)|
 
 ### SegMet Node
 
@@ -127,21 +132,27 @@ roslaunch ros_deep_learning segnet.ros1.launch input:=v4l2:///dev/video0 output:
 
 | Название топика | I/O | Тип сообщения | Описание |  
 |-------------------|--------------|--------------|--------------|
-|`image_i`|Ввод|[`sensor_msgs/Image`](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Image.html)|Необработанное входное изображение|
-|`classification`|Вывод|[`vision_msgs/Classification2D`](http://docs.ros.org/en/melodic/api/vision_msgs/html/msg/Classification2D.html)|Результаты классификации (идентификатор класса + уверенность)|
+|`image_in`|Ввод|[`sensor_msgs/Image`](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Image.html)|Необработанное входное изображение|
 |`vision_info`|Вывод|[`vision_msgs/VisionInfo`](http://docs.ros.org/en/melodic/api/vision_msgs/html/msg/VisionInfo.html)|Метаданные видения (название списка параметров меток классов)|
 |`overlay`|Вывод|[`sensor_msgs/Image`](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Image.html)|Входное изображение c наложенными результатами классификации|
+|`color_mask`|Вывод|[`sensor_msgs/Image`](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Image.html)|Раскрашенная маска классов сегментации|
+|`class_mask`|Вывод|[`sensor_msgs/Image`](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Image.html)|8-битное одноканальное изображение, где каждый пиксель является классификатором|
 
 Параметры
 
-| Название параметра | Тип | Значение по умолчанию | Описание | 
-|||||
-|||||
-|||||
-|||||
-|||||
-|||||
-|||||
+| Название параметра | Тип | Значение по умолчанию | Описание |
+|-------------------|--------------|--------------|--------------|
+|`model_name`|`строка`|`"fcn-resnet18-cityscapes-1024x512"`|Имя встроенной модели (допустимые значения см. Здесь)|
+|`model_path`|`строка`|`""`|Путь к пользовательской модели `caffe` или `ONNX`|
+|`prototxt_path	`|`строка`|`""`|Путь к пользовательскому файлу `caffe prototxt`|
+|`input_blob`|`строка`|`data`|Имя входного слоя `DNN`|
+|`output_blob`|`строка`|`score_fr_21classes`|Имя выходного слоя `DNN`|
+|`class_colors_path`|`строка`|`""`|Путь к файлу пользовательских цветов классов|
+|`class_labels_path`|`строка`|`""`|Путь к файлу пользовательских меток классов|
+|`class_labels_HASH`|`vector<строка>`|названия классов|Список меток классов, где `HASH` зависит от модели (фактическое имя параметра можно найти в разделе `vision_info`)|
+|`mask_filter`|`строка`|`"linear"`|Фильтрация, применяемая к теме `color_mask` (`linear` или `point`)|
+|`overlay_filter`|`строка`|`"linear"`|Фильтрация для применения к теме наложения (`linear` или `point`)|
+|`overlay_alpha`|`дробное значение`|`180.0`|Значение альфа-наложения, используемое темой наложения (0.0 - 255.0)|
 
 ### video_source Node
 
@@ -149,21 +160,19 @@ roslaunch ros_deep_learning segnet.ros1.launch input:=v4l2:///dev/video0 output:
 
 | Название топика | I/O | Тип сообщения | Описание |  
 |-------------------|--------------|--------------|--------------|
-|`image_i`|Ввод|[`sensor_msgs/Image`](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Image.html)|Необработанное входное изображение|
-|`classification`|Вывод|[`vision_msgs/Classification2D`](http://docs.ros.org/en/melodic/api/vision_msgs/html/msg/Classification2D.html)|Результаты классификации (идентификатор класса + уверенность)|
-|`vision_info`|Вывод|[`vision_msgs/VisionInfo`](http://docs.ros.org/en/melodic/api/vision_msgs/html/msg/VisionInfo.html)|Метаданные видения (название списка параметров меток классов)|
-|`overlay`|Вывод|[`sensor_msgs/Image`](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Image.html)|Входное изображение c наложенными результатами классификации|
+|`raw`|Вsвод|[`sensor_msgs/Image`](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Image.html)|Исходное изображение в формате Raw (BGR8)|
+
 
 Параметры
 
 | Название параметра | Тип | Значение по умолчанию | Описание | 
-|||||
-|||||
-|||||
-|||||
-|||||
-|||||
-|||||
+|`resource`|`строка`|`"csi://0"	`|URI входного потока (см. Здесь допустимые протоколы)|
+|`codec`|`строка`|`""`|Вручную укажите кодек для сжатых потоков (допустимые значения см. Здесь)|
+|`width`|`целое число`|0|Вручную укажите желаемую ширину видеопотокв (0 - поток по умолчанию)|
+|`height`|`целое число`|0|Вручную укажите желаемую высоту видеопотокв (0 - поток по умолчанию)|
+|`framerate`|`целое число`|0|Вручную укажите желаемую частоту кадров видеопотокв  (0 = поток по умолчанию)|
+|`loop`|`целое число`|0|Для видеофайлов: 0 - не зацикливаться, больше 0 - количество циклов, -1 - постоянный цикл|
+|`flip`|`строка`|`""`|Установите метод `flip` для камер `MIPI CSI` (допустимые значения см. Здесь|
 
 ### video_output Node
 
@@ -171,20 +180,15 @@ roslaunch ros_deep_learning segnet.ros1.launch input:=v4l2:///dev/video0 output:
 
 | Название топика | I/O | Тип сообщения | Описание |  
 |-------------------|--------------|--------------|--------------|
-|`image_i`|Ввод|[`sensor_msgs/Image`](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Image.html)|Необработанное входное изображение|
-|`classification`|Вывод|[`vision_msgs/Classification2D`](http://docs.ros.org/en/melodic/api/vision_msgs/html/msg/Classification2D.html)|Результаты классификации (идентификатор класса + уверенность)|
-|`vision_info`|Вывод|[`vision_msgs/VisionInfo`](http://docs.ros.org/en/melodic/api/vision_msgs/html/msg/VisionInfo.html)|Метаданные видения (название списка параметров меток классов)|
-|`overlay`|Вывод|[`sensor_msgs/Image`](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Image.html)|Входное изображение c наложенными результатами классификации|
+|`image_in`|Ввод|[`sensor_msgs/Image`](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Image.html)|Необработанное входное изображение|
 
 Параметры
 
-| Название параметра | Тип | Значение по умолчанию | Описание | 
-|||||
-|||||
-|||||
-|||||
-|||||
-|||||
-|||||
+| Название параметра | Тип | Значение по умолчанию | Описание |
+|-------------------|--------------|--------------|--------------|
+|`resource`|`строка`|`"display://0"	`|URI выходного видеопотока (см. Здесь допустимые протоколы)|
+|`codec`|`строка`|`"h264"	`|Кодек, используемый для сжатых потоков (допустимые значения см. Здесь)|
+|`bitrate`|`целое число`|4000000|Целевой битрейт `VBR` закодированных потоков (в битах в секунду)|
+
 
 Ниже приведены темы сообщений и параметры, которые реализует каждый узел.
