@@ -90,6 +90,7 @@ roslaunch ros_deep_learning segnet.ros1.launch input:=v4l2:///dev/video0 output:
 Параметры
 
 | Название параметра | Тип | Значение по умолчанию | Описание | 
+|-------------------|--------------|--------------|--------------|
 |`model_name`|`string`|`googlenet`|Имя встроенной модели (допустимые значения см. Здесь)|
 |`model_path`|`string`|`""`|Путь к пользовательской модели `caffe` или `ONNX`|
 |`prototxt_path`|`string`|`""`|Путь к пользовательскому файлу `caffe prototxt`|
