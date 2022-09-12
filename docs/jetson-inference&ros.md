@@ -74,6 +74,116 @@ roslaunch ros_deep_learning segnet.ros1.launch input:=v4l2:///dev/video0 output:
 
 ## Топики и параметры
 
+Ниже приведены топики сообщений и параметры, которыми опирирует каждый узел.
 
+### ImageNet Node
+
+Топики
+
+| Название топика | I/O | Тип сообщения | Описание |  
+|-------------------|--------------|--------------|--------------|
+|`image_i`|Ввод|[`sensor_msgs/Image`](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Image.html)|Необработанное входное изображение|
+|`classification`|Вывод|[`vision_msgs/Classification2D`](http://docs.ros.org/en/melodic/api/vision_msgs/html/msg/Classification2D.html)|Результаты классификации (идентификатор класса + уверенность)|
+|`vision_info`|Вывод|[`vision_msgs/VisionInfo`](http://docs.ros.org/en/melodic/api/vision_msgs/html/msg/VisionInfo.html)|Метаданные видения (название списка параметров меток классов)|
+|`overlay`|Вывод|[`sensor_msgs/Image`](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Image.html)|Входное изображение c наложенными результатами классификации|
+
+Параметры
+
+| Название параметра | Тип | Значение по умолчанию | Описание | 
+|`model_name`|`string`|`googlenet`|Имя встроенной модели (допустимые значения см. Здесь)|
+|`model_path`|`string`|`""`|Путь к пользовательской модели `caffe` или `ONNX`|
+|`prototxt_path`|`string`|`""`|Путь к пользовательскому файлу `caffe prototxt`|
+|`input_blob`|`string`|`data`|Имя входного слоя `DNN`|
+|`output_blob`|`string`|`prob`|Имя выходного слоя `DNN`|
+|`class_labels_path`|`string`|`""`|Путь к файлу пользовательских меток классов|
+|`class_labels_HASH`|`vector<string>`|class names|Список меток классов, где `HASH` зависит от модели (фактическое имя параметра можно найти в топике `vision_info`)|
+
+### DetectMet Node
+
+Топики
+
+| Название топика | I/O | Тип сообщения | Описание |  
+|-------------------|--------------|--------------|--------------|
+|`image_i`|Ввод|[`sensor_msgs/Image`](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Image.html)|Необработанное входное изображение|
+|`classification`|Вывод|[`vision_msgs/Classification2D`](http://docs.ros.org/en/melodic/api/vision_msgs/html/msg/Classification2D.html)|Результаты классификации (идентификатор класса + уверенность)|
+|`vision_info`|Вывод|[`vision_msgs/VisionInfo`](http://docs.ros.org/en/melodic/api/vision_msgs/html/msg/VisionInfo.html)|Метаданные видения (название списка параметров меток классов)|
+|`overlay`|Вывод|[`sensor_msgs/Image`](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Image.html)|Входное изображение c наложенными результатами классификации|
+
+Параметры
+
+| Название параметра | Тип | Значение по умолчанию | Описание | 
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
+
+### SegMet Node
+
+Топики
+
+| Название топика | I/O | Тип сообщения | Описание |  
+|-------------------|--------------|--------------|--------------|
+|`image_i`|Ввод|[`sensor_msgs/Image`](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Image.html)|Необработанное входное изображение|
+|`classification`|Вывод|[`vision_msgs/Classification2D`](http://docs.ros.org/en/melodic/api/vision_msgs/html/msg/Classification2D.html)|Результаты классификации (идентификатор класса + уверенность)|
+|`vision_info`|Вывод|[`vision_msgs/VisionInfo`](http://docs.ros.org/en/melodic/api/vision_msgs/html/msg/VisionInfo.html)|Метаданные видения (название списка параметров меток классов)|
+|`overlay`|Вывод|[`sensor_msgs/Image`](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Image.html)|Входное изображение c наложенными результатами классификации|
+
+Параметры
+
+| Название параметра | Тип | Значение по умолчанию | Описание | 
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
+
+### video_source Node
+
+Топики
+
+| Название топика | I/O | Тип сообщения | Описание |  
+|-------------------|--------------|--------------|--------------|
+|`image_i`|Ввод|[`sensor_msgs/Image`](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Image.html)|Необработанное входное изображение|
+|`classification`|Вывод|[`vision_msgs/Classification2D`](http://docs.ros.org/en/melodic/api/vision_msgs/html/msg/Classification2D.html)|Результаты классификации (идентификатор класса + уверенность)|
+|`vision_info`|Вывод|[`vision_msgs/VisionInfo`](http://docs.ros.org/en/melodic/api/vision_msgs/html/msg/VisionInfo.html)|Метаданные видения (название списка параметров меток классов)|
+|`overlay`|Вывод|[`sensor_msgs/Image`](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Image.html)|Входное изображение c наложенными результатами классификации|
+
+Параметры
+
+| Название параметра | Тип | Значение по умолчанию | Описание | 
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
+
+### video_output Node
+
+Топики
+
+| Название топика | I/O | Тип сообщения | Описание |  
+|-------------------|--------------|--------------|--------------|
+|`image_i`|Ввод|[`sensor_msgs/Image`](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Image.html)|Необработанное входное изображение|
+|`classification`|Вывод|[`vision_msgs/Classification2D`](http://docs.ros.org/en/melodic/api/vision_msgs/html/msg/Classification2D.html)|Результаты классификации (идентификатор класса + уверенность)|
+|`vision_info`|Вывод|[`vision_msgs/VisionInfo`](http://docs.ros.org/en/melodic/api/vision_msgs/html/msg/VisionInfo.html)|Метаданные видения (название списка параметров меток классов)|
+|`overlay`|Вывод|[`sensor_msgs/Image`](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Image.html)|Входное изображение c наложенными результатами классификации|
+
+Параметры
+
+| Название параметра | Тип | Значение по умолчанию | Описание | 
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
 
 Ниже приведены темы сообщений и параметры, которые реализует каждый узел.
