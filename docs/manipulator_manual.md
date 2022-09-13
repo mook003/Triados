@@ -13,7 +13,7 @@
 
 <p align="right">Дальше | <b><a href="moveit.md">MoveIt</a></b>
 <br/>
-Назад | <b><a href="object_detection.md](https://github.com/mook003/Triados/blob/main/docs/jetson-inference&ros.md">Jetson-inference и ROS</a></b></p>
+Назад | <b><a href="https://github.com/mook003/Triados/blob/main/docs/jetson-inference&ros.md">Jetson-inference и ROS</a></b></p>
 
 <p align="right">
 <p align="center"><sup>2021-2022 TRIADOS | </sup><a href="../README.md#содержание"><sup>Содержание</sup></a></p>
