@@ -48,6 +48,12 @@
   * [Нейронные сети](docs/object_detection.md)
 * [Jetson-inference и ROS](docs/jetson-inference&ros.md)
 
+#### Обучение нейронных сетей 
+
+* [Трансферное обучение нейронных сетей с PyTorch](docs/transfer_learning_with_pytorch.md)
+  * [Сбор собственных наборов данных для классификации изображений](docs/classification_datasets.md)
+  * [Сбор собственных наборов данных для обнаружения объектов](docs/detection_datasets.md)
+
 #### Манипулятор
 * [Сборка манипулятора](docs/manipulator_manual.md) 
 * [MoveIt](docs/moveit.md)
