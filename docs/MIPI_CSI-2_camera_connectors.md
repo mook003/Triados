@@ -23,7 +23,7 @@ MIPI Alliance (Mobile Industry Processor Interface Alliance) - это ассоц
 ## Итог
 Интерфейс MIPI CSI-2 идеально подходит для встраиваемых систем машинного зрения, для которых важными факторами выступают низкое ресурсопотребление и доступная стоимость. 
 
-<p align="right">Дальше | <b><a href="MIPI_CSI-2_camera_connectors.md">12-контактный разъём</a></b>
+<p align="right">Дальше | <b><a href="12-pin_header.md">12-контактный разъём</a></b>
 <br/>
 Назад | <b><a href="setting_up_jetson_nano.md#moveit.md">40-контактный разъём расширения</a></b></p>
 <p align="center"><sup>2021-2022 TRIADOS | </sup><a href="../README.md#содержание"><sup>Содержание</sup></a></p>
