@@ -67,7 +67,7 @@ rosrun rviz rviz
 
 Вы также можете добавить и другие топики вышеописанным методом. Например, изображение - `/left_row` или траекторию движения - `/odom`.
 
-<p align="right">Next | <b><a href="zed_param.md">Настройки камеры</a></b>
+<p align="right">Дальше | <b><a href="zed_param.md">Настройки камеры</a></b>
 <br/>
-Back | <b><a href="ros.md">Введение в ROS</a></b></p>
+Назад | <b><a href="ros_files.md">Типы файлов ROS</a></b></p>
 <p align="center"><sup>2021-2022 TRIADOS | </sup><a href="../README.md#содержание"><sup>Содержание</sup></a></p>
