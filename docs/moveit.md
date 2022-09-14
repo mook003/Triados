@@ -186,9 +186,9 @@ roslaunch moveit_setup_assistant setup_assistant.launch
 
 После сборки вы можете закрыть прогрмму кнопкой `Exit Setup Assistant`
 
-<p align="right">Next | <b><a href="platform.md">Сборка подвижной платформы</a></b>
+<p align="right">Дальше | <b><a href="platform.md">Сборка подвижной платформы</a></b>
 <br/>
-Back | <b><a href="manipulator_manual.md">Сборка манипулятора</a></b></p>
+Назад | <b><a href="manipulator_manual.md">Сборка манипулятора</a></b></p>
 
 <p align="right">
 <p align="center"><sup>2021-2022 TRIADOS | </sup><a href="../README.md#содержание"><sup>Содержание</sup></a></p>
