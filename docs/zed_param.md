@@ -150,7 +150,7 @@ rosrun rqt_reconfigure rqt_reconfigure
 | mc_fruit_vegetable | Включить/отключить обнаружение фруктов и овощей в моделях `MULTI_CLASS_BOX` | `true`, `false` |
 
 
-<p align="right">Next | <b><a href="sensors.md">Датчики</a></b>
+<p align="right">Дальше | <b><a href="sensors.md">Датчики</a></b>
 <br/>
-Back | <b><a href="zed.md">Работа с ZED</a></b></p>
+Назад | <b><a href="zed.md">Работа с ZED</a></b></p>
 <p align="center"><sup>2021-2022 TRIADOS | </sup><a href="../README.md#содержание"><sup>Содержание</sup></a></p>
