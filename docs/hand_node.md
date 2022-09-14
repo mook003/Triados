@@ -139,5 +139,5 @@ if __name__ == '__main__':
 
 <p align="right">
 <br/>
-Back | <b><a href="move_node.md">Move node</a></b></p>
+Назад | <b><a href="move_node.md">Move node</a></b></p>
 <p align="center"><sup>2021-2022 TRIADOS | </sup><a href="../README.md#содержание"><sup>Содержание</sup></a></p>
