@@ -191,5 +191,9 @@ roslaunch ros_deep_learning segnet.ros1.launch input:=v4l2:///dev/video0 output:
 |`codec`|`строка`|`"h264"	`|Кодек, используемый для сжатых потоков (допустимые значения см. Здесь)|
 |`bitrate`|`целое число`|4000000|Целевой битрейт `VBR` закодированных потоков (в битах в секунду)|
 
-
 Ниже приведены темы сообщений и параметры, которые реализует каждый узел.
+
+<p align="right">Дальше | <b><a href="transfer_learning_with_pytorch.md">Трансферное обучение нейронных сетей с PyTorch</a></b>
+<br/>
+Назад | <b><a href="object_detection.md">Нейронные сети</a></b></p>
+<p align="center"><sup>2021-2022 TRIADOS | </sup><a href="../README.md#содержание"><sup>Содержание</sup></a></p>
