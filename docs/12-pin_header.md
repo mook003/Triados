@@ -22,7 +22,7 @@
 | 11 | Земля (GND) | | |
 | 12 | Кнопка включения (PWR BTN) | Подключите незажимную кнопку к контактам 11 и 12. Если выключено автовключение (замкнуты пины 5 и 6), то нажмите нажмите данную кнопку чтобы включить систему :bulb: | 5B |
 
-<p align="right">Дальше | <b><a href="arduino.md">12-контактный разъём</a></b>
+<p align="right">Дальше | <b><a href="arduino.md">Что такое Arduino и для чего оно нужно в нашем роботе?</a></b>
 <br/>
-Назад | <b><a href="MIPI_CSI-2_camera_connectors.md">Что такое Arduino и для чего оно нужно в нашем роботе?</a></b></p>
+Назад | <b><a href="MIPI_CSI-2_camera_connectors.md">Разьёмы камеры MIPI CSI-2</a></b></p>
 <p align="center"><sup>2021-2022 TRIADOS | </sup><a href="../README.md#содержание"><sup>Содержание</sup></a></p>
