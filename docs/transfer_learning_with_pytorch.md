@@ -10,6 +10,9 @@ PyTorch - программная платформа машинного обуч�
 
 ## Установка PyTorch
 
+cd jetson-inference/build
+./install-pytorch.sh
+
 <p align="right">Дальше | <b><a href="classification_datasets.md">Сбор собственных наборов данных для классификации изображений</a></b>
 <br/>
 Назад | <b><a href="jetson-inference&ros.md">Jetson-inference и ROS</a></b></p>
