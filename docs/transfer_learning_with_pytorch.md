@@ -52,7 +52,7 @@ sudo systemctl set-default multi-user.target     # отключить рабоч
 sudo systemctl set-default graphical.target      # включить рабочий стол при запуске
 ```
 
-Теперь Вы можеет приступить к переобучению сетей!
+Теперь Вы можеет приступить к переобучению сетей.
 
 <p align="right">Дальше | <b><a href="classification_datasets.md">Сбор собственных наборов данных для классификации изображений</a></b>
 <br/>
