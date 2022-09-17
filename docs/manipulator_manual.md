@@ -19,6 +19,7 @@
 10. Сервопривод
 
 <img src=https://github.com/mook003/Triados/blob/main/docs/images/zahvat_manipulator.jpg>
+
 1. Впресуйте подшипник (8) в основу (7). 
 2. Впресуйте ... (5) в подшипник (8). 
 3. Вставьте гайки в детали (3, 4, 5, 6)
