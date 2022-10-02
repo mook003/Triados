@@ -78,3 +78,39 @@ void loop() {
 Назад | <b><a href="https://github.com/mook003/Triados/blob/main/docs/4to_takoe_arduino.md">Начало работы с Arduino</a></b></p>
 <p align="center"><sup>2021-2022 TRIADOS | </sup><a href="../README.md#содержание"><sup>Содержание</sup></a></p>
 
+
+
+
+#include <AFMotor.h>
+AF_DCMotor motor1(1);
+AF_DCMotor motor2(2);
+AF_DCMotor motor3(3);
+AF_DCMotor motor4(4);
+#include "GParser.h" // задаем библиотеку для передачи данных черех Serial.port
+void setup() {
+  Serial.begin(115200); // задаем частоту передачи данных с Arduino в Serial.port и наоборот
+  Serial.setTimeout(5); // задержка в передаче данных
+  motor1.setSpeed(200); //
+  motor2.setSpeed(200); // -||-
+  motor3.setSpeed(200); // -||-
+  motor4.setSpeed(200); // -||-
+}
+void loop() {
+  if (Serial.available()) {
+    char str[30];
+    int amount = Serial.readBytesUntil(';', str, 30);
+    str[amount] = NULL;
+    GParser data(str, ',');
+    int ints[5];
+    int am = data.parseInts(ints);
+  
+    switch (ints[0]) {  // ключ
+      case 0:
+        motor1.setSpeed(ints[1]);
+        motor2.setSpeed(ints[2]); // скорость 1 мотора
+        motor3.setSpeed(ints[3]); // скорость 2 мотора
+        motor4.setSpeed(ints[4]); // скорость 3 мотора
+        break;
+      }
+  }
+}
