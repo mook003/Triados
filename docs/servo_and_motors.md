@@ -106,10 +106,21 @@ void loop() {
   
     switch (ints[0]) {  // ключ
       case 0:
-        motor1.setSpeed(ints[1]);
+        motor1.run(ints[1]);
+        motor1.setSpeed(ints[2]);
+        motor2.run(FORWARD);
         motor2.setSpeed(ints[2]); // скорость 1 мотора
         motor3.setSpeed(ints[3]); // скорость 2 мотора
-        motor4.setSpeed(ints[4]); // скорость 3 мотора
+        motor4.setSpeed(ints[4]); // скорость 3 мотора*/
+
+        motor1.run(ints[1]);
+        motor1.setSpeed(ints[2]);
+        motor2.run(ints[3]);
+        motor2.setSpeed(ints[4]); // скорость 1 мотора
+        motor3.run(ints[5]);
+        motor3.setSpeed(ints[6]); // скорость 2 мотора
+        motor4.run(ints[7]);
+        motor4.setSpeed(ints[8]); // скорость 3 мотора
         break;
       }
   }
