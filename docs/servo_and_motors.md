@@ -90,10 +90,14 @@ AF_DCMotor motor4(4);
 void setup() {
   Serial.begin(115200); // задаем частоту передачи данных с Arduino в Serial.port и наоборот
   Serial.setTimeout(5); // задержка в передаче данных
-  motor1.setSpeed(200); //
-  motor2.setSpeed(200); // -||-
-  motor3.setSpeed(200); // -||-
-  motor4.setSpeed(200); // -||-
+  motor1.setSpeed(255);
+  motor1.run(RELEASE);
+  motor2.setSpeed(255);
+  motor2.run(RELEASE);
+  motor3.setSpeed(255);
+  motor3.run(RELEASE);
+  motor4.setSpeed(255);
+  motor4.run(RELEASE);
 }
 void loop() {
   if (Serial.available()) {
@@ -101,26 +105,19 @@ void loop() {
     int amount = Serial.readBytesUntil(';', str, 30);
     str[amount] = NULL;
     GParser data(str, ',');
-    int ints[5];
+    int ints[10];
     int am = data.parseInts(ints);
   
     switch (ints[0]) {  // ключ
       case 0:
-        motor1.run(ints[1]);
-        motor1.setSpeed(ints[2]);
-        motor2.run(FORWARD);
-        motor2.setSpeed(ints[2]); // скорость 1 мотора
-        motor3.setSpeed(ints[3]); // скорость 2 мотора
-        motor4.setSpeed(ints[4]); // скорость 3 мотора*/
-
-        motor1.run(ints[1]);
-        motor1.setSpeed(ints[2]);
-        motor2.run(ints[3]);
-        motor2.setSpeed(ints[4]); // скорость 1 мотора
+        motor1.run(ints[1]);               // FORWARD
+        motor1.setSpeed(ints[2]);          // RELEASE
+        motor2.run(ints[3]);               // BACKWARD
+        motor2.setSpeed(ints[4]); 
         motor3.run(ints[5]);
-        motor3.setSpeed(ints[6]); // скорость 2 мотора
+        motor3.setSpeed(ints[6]); 
         motor4.run(ints[7]);
-        motor4.setSpeed(ints[8]); // скорость 3 мотора
+        motor4.setSpeed(ints[8]); 
         break;
       }
   }
