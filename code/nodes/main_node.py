@@ -13,49 +13,46 @@ from std_msgs.msg import String
 
 
 obj_data = []
-
-def hand_com(x, y, z):
-	rospy.wait_for_service("hand_srv")
-	try: 
-		move_server = rospy.ServiceProxy("hand_srv", Messages)
-		data = move_server(x, y, z)
-		return data.report
-	except rospy.ServiceException as e:
-		return e
+#
+#def hand_com(x, y, z):
+#	rospy.wait_for_service("hand_srv")
+#	try: 
+#		move_server = rospy.ServiceProxy("hand_srv", Messages)
+#		data = move_server(x, y, z)
+#		return data.report
+#	except rospy.ServiceException as e:
+#		return e
 
 # Move node communication function
-def move_com(x, y, z):
-	global pub
-	pub.publish(String("{} {} {}".format(x, y, z)))
-	print("{} {} {}".format(x, y, z))
+#def move_com(x, y, z):
+#	global pub
+#	pub.publish(String("{} {} {}".format(x, y, z)))
+#	print("{} {} {}".format(x, y, z))
 
 # Received data processing function
 def callback(data):
 	global obj_data
-	obj_data = []
 	rospy.loginfo("***** New Object *****")
 	for i in data.objects:
-		print("find")
-		print(i.sublabel)
-		if i.sublabel == "Orange":
-			obj_data.append([i.label, i.label_id, [i.position[0]-0.0468, i.position[1]+0.0585, i.position[2]], i.confidence, i.tracking_state ])
+		rospy.loginfo("***** New Object Find*****")
+		rospy.loginfo(i.sublabel)
+		rospy.loginfo([i.position[0], i.position[1], i.position[2]])
+		if i.sublabel == "Apple":
+			obj_data = [i.sublabel, i.label_id, [i.position[0], i.position[1], i.position[2]], i.confidence, i.tracking_state ]
 			break
-	if obj_data:
-		print(obj_data)
-		if obj_data[0][2][0]>0.35:
-			move_com(obj_data[0][2][0], obj_data[0][2][1], obj_data[0][2][2])
-		if obj_data[0][2][0]<0.35:
-			print(hand_com(obj_data[0][2][0], obj_data[0][2][1], obj_data[0][2][2]))
+
 def main():
-	rospy.Subscriber("/zed2/zed_node/obj_det/objects", ObjectsStamped, callback)
-	print("asa")
+	print("yfx")
 	global obj_data
-	print(obj_data)
+	#while obj_data:
+		#povorachivat'
+	rospy.Subscriber("/zed2/zed_node/obj_det/objects", ObjectsStamped, callback)
+	rospy.loginfo("poisk ob'ekta")
 
 	rospy.spin()
 
 if __name__ == '__main__':
-	pub = rospy.Publisher('main_node_move', String)
+	#pub = rospy.Publisher('main_node_move', String)
 	rospy.init_node('main_node')
 	main()
 
