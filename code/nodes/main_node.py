@@ -2,7 +2,7 @@
 import roslib; roslib.load_manifest('aiden')
 import sys
 import rospy
-
+import serial
 
 from aiden.srv import *
 from sensor_msgs.msg import Image
@@ -30,6 +30,29 @@ obj_data = []
 #	print("{} {} {}".format(x, y, z))
 
 # Received data processing function
+
+# RIGHT_HANDED_Z_UP_X_FWD
+
+def go_to_object():
+	global obj_data
+	x = obj_data[2][0]
+	y = obj_data[2][1]
+	z = obj_data[2][2]
+	
+	y_coef = 0.25 * y ** 3
+	
+	speed = y
+
+	
+def object_search():
+	global obj_data
+	rospy.loginfo("***** Search *****)
+	wheel_arduino.write(bytes("0,20,-20,20,-20"))
+	while not object_data:
+		rospy.Subscriber("/zed2/zed_node/obj_det/objects", ObjectsStamped, callback)
+	rospy.loginfo("***** Find *****)
+	wheel_arduino.write(bytes("0,0,0,0,0"))		
+
 def callback(data):
 	global obj_data
 	rospy.loginfo("***** New Object *****")
@@ -42,16 +65,19 @@ def callback(data):
 			break
 
 def main():
-	print("yfx")
+	rospy.loginfo("Start")
 	global obj_data
-	#while obj_data:
-		#povorachivat'
 	rospy.Subscriber("/zed2/zed_node/obj_det/objects", ObjectsStamped, callback)
-	rospy.loginfo("poisk ob'ekta")
+	
+	if not obj_data: object_search()
 
+	go_to_object()
+		      
 	rospy.spin()
 
 if __name__ == '__main__':
+	wheel_arduino = serial.Serial('/dev/ttyACM0', baudrate = 115200)
+	rospy.loginfo("***** Start *****")
 	#pub = rospy.Publisher('main_node_move', String)
 	rospy.init_node('main_node')
 	main()
