@@ -3,6 +3,7 @@ import roslib; roslib.load_manifest('aiden')
 import sys
 import rospy
 import serial
+import math
 
 from aiden.srv import *
 from sensor_msgs.msg import Image
@@ -11,6 +12,11 @@ from zed_interfaces.msg import ObjectsStamped
 from std_msgs.msg import String
 
 obj_data = []
+
+a = math.radians(16.184) # угол поворота камеры
+
+zed_coor = ["?","?","?"] # координаты камеры относительно начала координат робота
+
 #
 #def hand_com(x, y, z):
 #	rospy.wait_for_service("hand_srv")
@@ -34,7 +40,8 @@ obj_data = []
 def go_to_object():
 	global obj_data
 	x, y, z = obj_data[2][0], obj_data[2][1], obj_data[2][2]
-	
+	x = x * math.cos(a)  - z * math.sin(a) - zed_coor[0]
+	z = x * math.sin(a)  + z * math.cos(a) - zed_coor[3]
 	y_coef = 0.25 * y ** 3
 	rospy.loginfo("* povorot *")
 	speed = y		
@@ -55,11 +62,8 @@ def main():
 	global obj_data
 	rospy.Subscriber("/zed2/zed_node/obj_det/objects", ObjectsStamped, callback)
 	print(obj_data)
-	if not obj_data:
-		print(obj_data)
-		
-	if obj_data:
-		go_to_object()
+	if not obj_data: rospy.loginfo("***** Object not found *****")	
+	if obj_data: go_to_object()
 
 	rospy.spin()
 	#!!!wheel_arduino.close()
