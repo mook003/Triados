@@ -5,33 +5,10 @@
 import roslib; roslib.load_manifest('aiden')
 import sys
 import rospy
-
-
-
-from aiden.srv import *
-from sensor_msgs.msg import Image
-from zed_interfaces.msg import Object
-from zed_interfaces.msg import ObjectsStamped
-from std_msgs.msg import String
-
-
-
-obj_data = []
-
-def hand_com(x, y, z):
-	rospy.wait_for_service("hand_srv")
-	try: 
-		move_server = rospy.ServiceProxy("hand_srv", Messages)
-		data = move_server(x, y, z)
-		return data.report
-	except rospy.ServiceException as e:
-#!/usr/bin/env python
-import roslib; roslib.load_manifest('aiden')
-import sys
-import rospy
 import serial
 import math
 
+#import message types
 from aiden.srv import *
 from sensor_msgs.msg import Image
 from zed_interfaces.msg import Object
@@ -39,15 +16,12 @@ from zed_interfaces.msg import ObjectsStamped
 from std_msgs.msg import String
 from geometry_msgs.msg import PoseStamped
 
-t = 0
-obj_data = []
+timer = 0
+obj_data = [] #information about the detected object
 goal_status = False
 start_pose = 0
 a = math.radians(28.9) # camera angle
-
 zed_coor = [0.095,0.06,0.31] # camera coordinates relative to robot origin
-
-
 
 # RIGHT_HANDED_Z_UP_X_FWD
 
@@ -72,19 +46,24 @@ def quaternion_to_euler(x, y, z, w):
  
 	return roll_x, pitch_y, yaw_z
 
+
 def pose_callback(data):
 	global start_pose
+	
 	position = [data.pose.position.x,data.pose.position.y,data.pose.position.z]
-	x,y,z,w = data.pose.orientation.x,data.pose.orientation.y,data.pose.orientation.z,data.pose.orientation.w
-	x,y,z = quaternion_to_euler(x, y, z, w)
+	x,y,z = quaternion_to_euler(data.pose.orientation.x,data.pose.orientation.y,data.pose.orientation.z,data.pose.orientation.w)
 
 	if not start_pose: start_pose = [position, [x,y,z]]
 	
 	else:
 		rospy.loginfo("kruti, verti")	
+	
 	rospy.loginfo(start_pose)
+		
+	
 def go_to_object():
 	global obj_data, goal_status
+	
 	x, y, z = obj_data[2][0], obj_data[2][1], obj_data[2][2]
 
 	x = x * math.cos(a)  + z * math.sin(a) - zed_coor[0]
@@ -112,7 +91,7 @@ def callback(data):
 		rospy.loginfo("***** New Object Find*****")
 		rospy.loginfo(i.sublabel)
 		rospy.loginfo([i.position[0], i.position[1], i.position[2]])
-		if i.sublabel == "Orange" or i.sublabel == "Apple":
+		if i.sublabel in ["Orange", "Apple"]:
 			obj_data = [i.sublabel, i.label_id, [i.position[0], i.position[1], i.position[2]], i.confidence, i.tracking_state ]
 			if not start_pose: rospy.Subscriber("/zed2/zed_node/pose", PoseStamped, pose_callback)
 			break
@@ -122,32 +101,32 @@ def callback(data):
 		rospy.loginfo("***** Go To Object *****")
 		go_to_object()
 	else:
-		if not t:
-			t = rospy.Time.now() + rospy.Duration(1)
-		if rospy.Time.now() > t and t:
+		if not timer:
+			timer = rospy.Time.now() + rospy.Duration(1)
+		if rospy.Time.now() > timer and timer:
 			wheel_arduino.write(bytes('0'))
-			t = 0
+			timer = 0
 	obj_data = []
 
+
 def main():
-	rospy.loginfo("Start")
 	global obj_data
 	rospy.Subscriber("/zed2/zed_node/obj_det/objects", ObjectsStamped, callback)
-
 	rospy.spin()
 
 if __name__ == '__main__':
+
+	#connection to Arduino
 	wheel_arduino = serial.Serial('/dev/ttyACM0', baudrate = 115200)
+	
 	rospy.loginfo("***** Start *****")
+	
+	#node initialization
 	rospy.init_node('main_node')
 
 	try:
 		main()
 	except rospy.ROSInterruptException: pass
-
-
-
-
 ```
 
 ## Разбор кода
@@ -162,7 +141,7 @@ if __name__ == '__main__':
 
 #### Импорт модулей и типов сообщений
 
-Добавьте `import` операторы для загрузки модулей `roslib`, `rospy` и манифеста вашего !!.
+Добавьте `import` операторы для загрузки модулей `roslib`, `rospy` и манифеста вашего паекта.
 
 ``` python
 import roslib; roslib.load_manifest('aiden')
