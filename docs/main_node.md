@@ -46,21 +46,6 @@ def quaternion_to_euler(x, y, z, w):
  
 	return roll_x, pitch_y, yaw_z
 
-
-def pose_callback(data):
-	global start_pose
-	
-	position = [data.pose.position.x,data.pose.position.y,data.pose.position.z]
-	x,y,z = quaternion_to_euler(data.pose.orientation.x,data.pose.orientation.y,data.pose.orientation.z,data.pose.orientation.w)
-
-	if not start_pose: start_pose = [position, [x,y,z]]
-	
-	else:
-		rospy.loginfo("kruti, verti")	
-	
-	rospy.loginfo(start_pose)
-		
-	
 def go_to_object():
 	global obj_data, goal_status
 	
@@ -83,9 +68,23 @@ def go_to_object():
 	if x<0.25:
 		goal_status = True
 		rospy.loginfo("stop")
-		wheel_arduino.write(bytes('0'))		
+		wheel_arduino.write(bytes('0'))
 
-def callback(data):
+def pose_callback(data):
+	global start_pose
+	
+	position = [data.pose.position.x,data.pose.position.y,data.pose.position.z]
+	x,y,z = quaternion_to_euler(data.pose.orientation.x,data.pose.orientation.y,data.pose.orientation.z,data.pose.orientation.w)
+
+	if not start_pose: start_pose = [position, [x,y,z]]
+	
+	else:
+		rospy.loginfo("kruti, verti")	
+	
+	rospy.loginfo(start_pose)
+				
+
+def od_callback(data):
 	global obj_data, t, start_pose, goal_status
 	for i in data.objects:
 		rospy.loginfo("***** New Object Find*****")
@@ -111,7 +110,7 @@ def callback(data):
 
 def main():
 	global obj_data
-	rospy.Subscriber("/zed2/zed_node/obj_det/objects", ObjectsStamped, callback)
+	rospy.Subscriber("/zed2/zed_node/obj_det/objects", ObjectsStamped, od_callback)
 	rospy.spin()
 
 if __name__ == '__main__':
@@ -147,6 +146,8 @@ if __name__ == '__main__':
 import roslib; roslib.load_manifest('aiden')
 import sys
 import rospy
+import serial
+import math
 ```
 
 Следующим этапом нужно импортировать типы сообщений, которые будут использоваться нодами:
@@ -157,10 +158,26 @@ from sensor_msgs.msg import Image
 from zed_interfaces.msg import Object
 from zed_interfaces.msg import ObjectsStamped
 from std_msgs.msg import String
+from geometry_msgs.msg import PoseStamped
 ```
 
 #### Функции обработки и передачи данных 
+
 Приступим к написанию основной части прораммы.
+
+Функция `quaternion_to_euler` принимает кватеринон и возвращает уогл поворота в кругах Эйлера. Кватрнионы - особый способ задания поворота объекта, о котором мы скоро подробно расскажем.  
+
+
+
+Функция `go_to_object` управляет колёсам робота через Arduino и соответсвующий драйвер.
+
+
+
+Далее идут функции `pose_callback` и `od_callback`, получающие данные от топиков `/zed2/zed_node/pose` и `/zed2/zed_node/obj_det/objects` соответственно. `pose_callback` получает положение робота отноительно начального положения: координаты (x,y,z) и ориентацию в виде кватарнионы
+а (x,y,z,w).
+
+Последняя функция, `main`, запускает работу программы.
+
 
 Следующая функция обеспечивает связь между `main_node` и [`hand_node`](https://github.com/mook003/Triados/blob/main/code/nodes/hand_node.py), передавая координаты объекта и получая обратно отчёт от манипулятора.
 ``` python
