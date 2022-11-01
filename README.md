@@ -61,5 +61,6 @@
 #### Робот
 * [Сборка подвижной платформы](docs/platform.md)
 * [Main node](docs/main_node.md)
-* [Move node](docs/move_node.md)
-* [Hand node](docs/hand_node.md)
+
+#### Gazebo 
+* [Сборка подвижной платформы](docs/start_in_gazebo.md)
