@@ -286,7 +286,7 @@ try:
 except rospy.ROSInterruptException: pass
 ``` 
 
-<p align="right">Дальше | <b><a href="move_node.md">Move node</a></b>
+<p align="right">Дальше | <b><a href="start_in_gazebo.md">Начало работы с Gazebo</a></b>
 <br/>
 Назад | <b><a href="platform.md">Сборка подвижной платформы</a></b></p>
 
