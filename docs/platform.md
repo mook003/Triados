@@ -4,7 +4,7 @@
 
 Все дальшейшие программы рассчитаны для робота aiden. В дальнейшем мы объясним, какие параметры необходимо заменить под Вашего робота.
 
-Инструкцию по сборке Вы можете найти (здесь)[https://drive.google.com/file/d/1E_0yalZk4lGTx4Aq7CmjTtEksxHeOg2u/view?usp=drivesdk]
+Инструкцию по сборке Вы можете найти [здесь](https://drive.google.com/file/d/1E_0yalZk4lGTx4Aq7CmjTtEksxHeOg2u/view?usp=drivesdk)
 
 <p align="right">Дальше | <b><a href="main_node.md">Main node</a></b>
 <br/>
