@@ -227,7 +227,7 @@ def pose_callback(data):
 	if not start_pose: start_pose = [position, [x,y,z]]
 	
 	else:
-		rospy.loginfo("kruti, verti")	
+		rospy.loginfo("")	
 	
 	rospy.loginfo(start_pose)
 ``` 
