@@ -73,13 +73,6 @@ void loop() {
 
 4. Как загружать код в Arduino, Вы уже знаете. Так что загружаем и кайфуем)
 
-<p align="right">Дальше | <b><a href="https://github.com/mook003/Triados/blob/main/docs/ros.md">Введение в Ros</a></b>
-<br/>
-Назад | <b><a href="https://github.com/mook003/Triados/blob/main/docs/4to_takoe_arduino.md">Начало работы с Arduino</a></b></p>
-<p align="center"><sup>2021-2023 TRIADOS | </sup><a href="../README.md#содержание"><sup>Содержание</sup></a></p>
-
-
-
 ```C++
 #include <AFMotor.h>
 AF_DCMotor motor1(1);
@@ -123,3 +116,9 @@ void loop() {
   }
 }
 ```
+
+
+<p align="right">Дальше | <b><a href="https://github.com/mook003/Triados/blob/main/docs/ros.md">Введение в Ros</a></b>
+<br/>
+Назад | <b><a href="https://github.com/mook003/Triados/blob/main/docs/4to_takoe_arduino.md">Начало работы с Arduino</a></b></p>
+<p align="center"><sup>2021-2023 TRIADOS | </sup><a href="../README.md#содержание"><sup>Содержание</sup></a></p>
