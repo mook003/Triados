@@ -49,6 +49,6 @@
 <p align="right">Дальше | <b><a href="https://github.com/mook003/Triados/blob/main/docs/servo_and_motors.md">Програмное обеспечение для взаимодействия с Arduino</a></b>
 <br/>
 Назад | <b><a href="https://github.com/mook003/Triados/blob/main/docs/arduino.md">Что такое Arduino и для чего оно нужно в нашем роботе?</a></b></p>
-<p align="center"><sup>2021-2022 TRIADOS | </sup><a href="../README.md#содержание"><sup>Содержание</sup></a></p>
+<p align="center"><sup>2021-2023 TRIADOS | </sup><a href="../README.md#содержание"><sup>Содержание</sup></a></p>
 
  
