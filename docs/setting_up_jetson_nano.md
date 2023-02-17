@@ -218,4 +218,4 @@ $ sudo ldconfig
 <p align="right">Дальше | <b><a href="40-pin_expansion_header.md">40-контактный разъём расширения</a></b>
 <br/>
 Назад | <b><a href="linux_installation.md">Установка операционной системы</a></b></p>
-<p align="center"><sup>2021-2022 TRIADOS | </sup><a href="../README.md#содержание"><sup>Содержание</sup></a></p>
+<p align="center"><sup>2021-2023 TRIADOS | </sup><a href="../README.md#содержание"><sup>Содержание</sup></a></p>
