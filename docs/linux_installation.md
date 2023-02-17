@@ -235,4 +235,4 @@ sudo eject /dev/sd<x>
 <p align="right">Дальше | <b><a href="setting_up_jetson_nano.md">Настройка Nvidia jetson</a></b>
 <br/>
 </p>
-<p align="center"><sup>2021-2022 TRIADOS | </sup><a href="../README.md#содержание"><sup>Содержание</sup></a></p>
+<p align="center"><sup>2021-2023 TRIADOS | </sup><a href="../README.md#содержание"><sup>Содержание</sup></a></p>
